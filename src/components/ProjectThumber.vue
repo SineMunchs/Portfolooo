@@ -1,5 +1,6 @@
-<script>
-import { RouterLink } from 'vue-router';
+<script>import { RouterLink } from 'vue-router';
+
+// Ref - Play video Pause -Thumber to video inset 
 
  export default {
    props: ['title', 'tags', 'video', 'link'],
@@ -17,7 +18,7 @@ import { RouterLink } from 'vue-router';
  }
 </script>
 <template>
-    <div class="py-4 ml-1 grid grid-cols-2 row-2" @mouseenter="playVideo" @mouseleave="stopVideo">
+    <div class="py-3 ml-1 grid grid-cols-2 row-2" @mouseenter="playVideo" @mouseleave="stopVideo">
   
         <a :href="link" class="elite text-blå font-bold text-6xl hover:text-blue-600">{{ title }}</a>
         <h1 class="flex elite text-blå  row-start-2">{{ tags }}</h1>

@@ -11,42 +11,21 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 </script>
 
 <template>
-
-  <!-- First Semester -->
-    <!--Border-->
-  <!-- <div class=" mt-20 ml-1 grid grid-cols-2 row-2">
-  
-      <a href="/projects/1" class="elite text-blå font-bold text-6xl hover:text-blue-600">FIRST SEMESTER PROJECT</a>
-       <h1 class="flex elite text-blå  row-start-2">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING</h1>
-
-      <video class="justify-self-end object-cover h-60 w-96 ml-20 row-span-2 col-span-2 row-start-1 row-end-4" autoplay loop muted>
-         <source src="../../Video/assetgenerator.mp4" type="video/mp4">
-   </video>
-   
-  </div> -->
-
   <div class="mt-20"></div>
 
   <ProjectThumber title="FIRST SEMESTER PROJECT" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING" video="../../Video/assetgenerator.mp4" link="/projects/1"></ProjectThumber>
 
+  <!--BORDER-->
     <div class=" border-b border-blå p-1"> </div>
 
 <!-- Creative Coding Thumbnail-->
-     <!--Border-->
      <ProjectThumber title="CREATIVE CODING" tags="DRAWING WITH PROCISSING" video="../../Video/Processing copy.mp4" link="/projects/2"></ProjectThumber>
-    <!-- <div class=" mt-1 ml-1 grid grid-cols-2">
-  
-      <a href="/projects/2" class="elite text-blå font-bold text-6xl     hover:text-blue-600">CREATIVE CODING</a>
-      <h1 class="flex elite text-blå row-start-2">DRAWING WITH PROCISSING</h1>
-
-       <video class="justify-self-end object-cover h-64 w-96 ml-1 row-span-2 col-span-2 row-start-1 row-end-4" autoplay loop muted>
-      <source src="../../Video/Processing copy.mp4" type="video/mp4">
-      </video>
-    </div> -->
 
     <div class=" border-b border-blå p-1"> </div>
 
-  <!-- FIGUR OG FARVE -->
+
+
+  <!-- FIGUR OG FARVE (BILLEDER)-->
   <!--Border-->
   <div class=" mt-1 ml-1 grid grid-cols-2">
   <!--Text-->
@@ -57,58 +36,32 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
   <img src="../../images/Figur_color.png" alt="Project 1" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
 </div>
 
+<!--BORDER-->
 <div class=" border-b border-blå p-1"> </div>
 
-<!-- PHOTO/ MIDJOURNEU -->
-  <!--Border-->
+<!--PHOTO-->
   <div class=" mt-1 ml-1 grid grid-cols-2">
-  
-  <a href="/projects/6" class="elite text-blå font-bold text-6xl     hover:text-blue-600">PHOTO</a>
-
+    <a href="/projects/4" class="elite text-blå font-bold text-6xl     hover:text-blue-600">PHOTO</a>
   <h1 class="flex elite text-blå row-start-2">HI AI
   </h1>
-
   <img src="../../images/AI.png" alt="Project 1" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
 </div>
 
+<!--BORDER-->
 <div class=" border-b border-blå p-1"> </div>
 
 <!-- BLENDER -->
-  <!--Border-->
-    <div class=" mt-1 ml-1 grid grid-cols-2">
+  <ProjectThumber title="BLENDER" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING" video="../../Video/Mike.mp4" link="/projects/5"></ProjectThumber>
+
+  <!--BORDER-->
+<div class=" border-b border-blå p-1"> </div>
   
-    <a href="/projects/4" class="elite text-blå font-bold text-6xl hover:text-blue-600">BLENDER</a>
+<!--CODING Kode som sprog -->
+  <ProjectThumber title="CODING" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY" video="../../Video/Panda.mp4" link="/projects/6"></ProjectThumber>
 
-    <h1 class="flex elite text-blå row-start-2">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING
-    </h1>
 
-    <video class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4" autoplay loop muted>
-      <source src="../../Video/Mike.mp4" type="video/mp4">
-    </video>
-</div>
-
+  <!--BORDER-->
 <div class=" border-b border-blå p-1"> </div>
 
-    
-<!-- Kode som sprog -->
-  <!--Border-->
-  <div class=" mt-1 ml-1 grid grid-cols-2">
-  
-  <a href="/projects/5" class="elite text-blå font-bold text-6xl     hover:text-blue-600">CODING</a>
-
-  <h1 class="flex elite text-blå row-start-2">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
-  </h1>
-
-  <video class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4" autoplay loop muted>
-    <source src="../../Video/Panda.mp4" type="video/mp4">
-  </video>
-</div>
-
-<div class=" border-b border-blå p-1"> </div>
-
-    
-
-    
-    
 
 </template>
