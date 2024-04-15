@@ -1,9 +1,11 @@
 <script>
 import ProjectThumbnail from '@/components/ProjectThumbnail.vue'
+import ProjectThumber from '@/components/ProjectThumber.vue'
  
  export default {
     components: {
         ProjectThumbnail,
+        ProjectThumber,
     },
  }
 </script>
@@ -12,7 +14,7 @@ import ProjectThumbnail from '@/components/ProjectThumbnail.vue'
 
   <!-- First Semester -->
     <!--Border-->
-  <div class=" mt-20 ml-1 grid grid-cols-2 row-2">
+  <!-- <div class=" mt-20 ml-1 grid grid-cols-2 row-2">
   
       <a href="/projects/1" class="elite text-blå font-bold text-6xl hover:text-blue-600">FIRST SEMESTER PROJECT</a>
        <h1 class="flex elite text-blå  row-start-2">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING</h1>
@@ -21,13 +23,18 @@ import ProjectThumbnail from '@/components/ProjectThumbnail.vue'
          <source src="../../Video/assetgenerator.mp4" type="video/mp4">
    </video>
    
-  </div>
+  </div> -->
+
+  <div class="mt-20"></div>
+
+  <ProjectThumber title="FIRST SEMESTER PROJECT" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING" video="../../Video/assetgenerator.mp4" link="/projects/1"></ProjectThumber>
 
     <div class=" border-b border-blå p-1"> </div>
 
 <!-- Creative Coding Thumbnail-->
      <!--Border-->
-    <div class=" mt-1 ml-1 grid grid-cols-2">
+     <ProjectThumber title="CREATIVE CODING" tags="DRAWING WITH PROCISSING" video="../../Video/Processing copy.mp4" link="/projects/2"></ProjectThumber>
+    <!-- <div class=" mt-1 ml-1 grid grid-cols-2">
   
       <a href="/projects/2" class="elite text-blå font-bold text-6xl     hover:text-blue-600">CREATIVE CODING</a>
       <h1 class="flex elite text-blå row-start-2">DRAWING WITH PROCISSING</h1>
@@ -35,7 +42,7 @@ import ProjectThumbnail from '@/components/ProjectThumbnail.vue'
        <video class="justify-self-end object-cover h-64 w-96 ml-1 row-span-2 col-span-2 row-start-1 row-end-4" autoplay loop muted>
       <source src="../../Video/Processing copy.mp4" type="video/mp4">
       </video>
-    </div>
+    </div> -->
 
     <div class=" border-b border-blå p-1"> </div>
 
