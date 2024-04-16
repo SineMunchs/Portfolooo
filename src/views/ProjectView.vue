@@ -48,21 +48,18 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 </div> 
 
 <div class=" border-b border-blå p-1"> </div>
--->
 
-<!--CODING Kode som sprog -->
+
+CODING Kode som sprog 
 <ProjectThumber title="CODING" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY" video="../../Video/Panda.mp4" link="/projects/6"></ProjectThumber>
 
-
-
-  <!--BORDER-->
+BORDER
 <div class=" border-b border-blå p-1"> </div>
   
-<!-- BLENDER -->
+BLENDER 
 <ProjectThumber title="BLENDER" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING" video="../../Video/Mike.mp4" link="/projects/5"></ProjectThumber>
 
-  <!--BORDER-->
 <div class=" border-b border-blå p-1"> </div>
-
+-->
 
 </template>
