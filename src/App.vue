@@ -10,8 +10,9 @@ import { RouterLink, RouterView } from 'vue-router'
   
 
   <RouterLink to="/" class="scale-y-[-1] eltie font-bold text-2xl hover:text-blue-600 ">HELLO WORLD</RouterLink>
+  <RouterLink to="/projects" class="elite font-bold hover:text-blue-600 text-2xl ">WORK</RouterLink>
   <RouterLink to="/about" class="elite font-bold hover:text-blue-600 text-2xl">ABOUT</RouterLink>
-  <RouterLink to="/projects" class="elite font-bold hover:text-blue-600 text-2xl ">WORK</RouterLink>  
+  
   </nav>
 
   <!-- Project view  -->

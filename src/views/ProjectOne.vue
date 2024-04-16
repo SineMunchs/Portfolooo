@@ -7,6 +7,8 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
         ProjectThumber,
     },
  }
+
+
 </script>
 
 <template>   
@@ -24,3 +26,11 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
   </video>
 
 </template>
+
+
+To apply a blue color overlay to a video that only clears upon mouse hover, you will need to use CSS for styling. Here’s how you can achieve this effect assuming you’re working within a framework that allows inline styling or you can modify the CSS directly. I’ll guide you through creating a CSS class for this purpose.
+
+First, define a CSS class that applies the blue overlay using ::before pseudo-element. When the user hovers over the video, this overlay should become transparent. Here's the CSS code:
+
+
+

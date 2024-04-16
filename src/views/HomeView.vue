@@ -15,12 +15,10 @@ export default {
 }
 </script>
 
+<!--Hello world-->
 <template>
     <Background class = "mt-60 mb-10">
       <TitleLink class=" m-0 p-0 scale-y-[-1] "></TitleLink>
       <TitleLink class="m-0 p-0"></TitleLink>
-      <!--  <TitleLink class="scale-y-[-1]"></TitleLink>
-    <TitleLink1 class = "rotate-180 mr-4 mt-61"></TitleLink1> -->
-
     </Background>
 </template>
