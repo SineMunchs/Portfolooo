@@ -13,7 +13,7 @@ export default {
     return {
       // Array of images
       images: [
-        { src: "../../images/Projekt1.png", alt: "hosho" },
+        { src: "../../images/Projekt1.jpg", alt: "hosho" },
         { src: "../../images/Projekt2.jpg", alt: "visuel identitet" },
         { src: "../../images/Projekt4.png", alt: "visuel identitet" },
         { src: "../../images/Projekt3.jpg", alt: "visuel identitet" }
@@ -36,7 +36,7 @@ export default {
 .media-element {
   flex: 0 0 auto;
   scroll-snap-align: center;
-  width: 100%; /* Adjust width as needed */
+  width: 80%; /* Adjust width as needed */
 }
 
 img {

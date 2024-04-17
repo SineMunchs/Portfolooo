@@ -14,22 +14,39 @@ export default {
 </script>
 
 <template>   
-<div class=" mt-20 ml-1 grid">
+<div class=" mt-20 ml-1">
+  <h1 class="flex elite font-bold text-blå text-9xl">JEWELLERY GENERATOR</h1>
 
-  
-  <h1 class="flex elite font-bold text-blå text-8xl">JEWELLERY GENERATOR</h1>
-
-  <h1 class="flex elite text-blå row-start-2 p-3">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING
+  <h1 class="flex elite text-blå row-start-2 p-2">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING
   </h1>
 </div>
 
-<ProjectThumber video="../../Video/assetgenerator.mp4" link="/projects/6"></ProjectThumber>
+<!--BORDER-->
+<div class=" border-b border-blå"> </div>
+<div class=" grid grid-cols-2 row-2">
+ <p class="col-start-1 elite text-blå p-2">   
+  First semester project in the course "The Language of Visuals," I created a comprehensive piece that integrated various disciplines studied throughout the term, including form, color theory, typography, drawing, creativity, 3D modeling, and programming. This project serves as a practical culmination of my learning and skills developed during the semester.
 
-  <h2 class="p-2 mt-5 flex elite font-bold text-blå text-4xl">Process</h2>
+    <ul class="list-disc p-4 marker:text-blå elite tracking-widest space-y-4">
+        <LI>PROCESSING</LI>
+        <li>BLENDER</li>
+        <li>ILLUSTRATOR</li>
+    </ul>
+  </p>
 
-<MediaScroller class="p2"> </MediaScroller>
+  <video class="h-25% w-25% col-start-2" autoplay loop muted>
+  <source src="../../Video/assetgenerator.mp4" type="video/mp4">
+  </video>
 
+</div>
 
+<!--BORDER-->
+<div class=" border-b border-blå"> </div>
+
+  <MediaScroller class="p2"> </MediaScroller>
+
+<!--BORDER-->
+<div class=" border-b border-blå"> </div>
   
 </template>
 

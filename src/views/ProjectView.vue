@@ -12,7 +12,10 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 
 <template>
   <div class="mt-20"></div>
-
+  
+  <!--BORDER-->
+  <div class=" border-b border-blå p-1"> </div>
+  
   <ProjectThumber title="FIRST SEMESTER PROJECT" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING" video="../../Video/hands.mp4" link="/projects/1"></ProjectThumber>
 
   <!--BORDER-->
