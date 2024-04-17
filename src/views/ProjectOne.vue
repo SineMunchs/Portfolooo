@@ -22,7 +22,7 @@ export default {
 </div>
 
 <!--BORDER-->
-<div class=" border-b border-blå"> </div>
+<div class=" border-b border-blå mt-10"> </div>
 <div class=" grid grid-cols-2 row-2">
  <p class="col-start-1 elite text-blå p-2">   
   First semester project in the course "The Language of Visuals," I created a comprehensive piece that integrated various disciplines studied throughout the term, including form, color theory, typography, drawing, creativity, 3D modeling, and programming. This project serves as a practical culmination of my learning and skills developed during the semester.

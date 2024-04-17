@@ -18,7 +18,7 @@ export default {
 <!--Hello world-->
 <template>
     <Background class = "mt-60 mb-10">
-      <TitleLink class=" m-0 p-0 scale-y-[-1] "></TitleLink>
+      <TitleLink class=" m-0 p-0 scale-y-[-1] hover:animate-spin"></TitleLink>
       <TitleLink class="m-0 p-0"></TitleLink>
     </Background>
 </template>

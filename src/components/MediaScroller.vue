@@ -15,8 +15,8 @@ export default {
       images: [
         { src: "../../images/Projekt1.jpg", alt: "hosho" },
         { src: "../../images/Projekt2.jpg", alt: "visuel identitet" },
-        { src: "../../images/Projekt4.png", alt: "visuel identitet" },
-        { src: "../../images/Projekt3.jpg", alt: "visuel identitet" }
+        { src: "../../images/Projekt4.png", alt: "Illustrationer" },
+        { src: "../../images/Projekt3.jpg", alt: "Billedestil" }
       ]
     };
   }
@@ -36,7 +36,7 @@ export default {
 .media-element {
   flex: 0 0 auto;
   scroll-snap-align: center;
-  width: 80%; /* Adjust width as needed */
+  width: 80%; /* Adjust w if needed */
 }
 
 img {
