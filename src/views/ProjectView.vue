@@ -26,18 +26,31 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 
     <div class=" border-b border-blå p-1"> </div>
 
+<!--Border-->
+<div class=" mt-1 ml-1 grid grid-cols-2">
 
-
-  <!-- FIGUR OG FARVE (BILLEDER)-->
-  <!--Border-->
-  <div class=" mt-1 ml-1 grid grid-cols-2">
-  <!--Text-->
+<!--Text-->
   <a href="/projects/3" class="elite text-blå font-bold text-6xl     hover:text-blue-600"> VISUAL LANGUAGE</a>
-  <h1 class="flex elite text-blå row-start-2">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
+  <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
   </h1>
   <!--Media-->
-  <img src="../../images/Figur_color.png" alt="Project 1" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
+  <img src="../../images/Figur_color.png" alt="Project 3" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
 </div>
+
+<!--BORDER-->
+  <div class=" border-b border-blå "> </div>
+
+
+<!-- COLOR Observation-->
+<div class=" mt-1 ml-1 grid grid-cols-2">
+<!--Text-->
+    <a href="/projects/4" class="elite text-blå font-bold text-6xl hover:text-blue-600 tracking-widest"> COLOR OBSERVATION </a>
+  <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
+  </h1>
+<!--Media-->
+    <img src="../../images/makrel1.jpg" alt="Project 4" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
+</div>
+
 
 <!--BORDER-->
 <div class=" border-b border-blå p-1"> </div>
