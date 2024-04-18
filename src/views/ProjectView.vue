@@ -16,13 +16,13 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
   <!--BORDER-->
   <div class=" border-b border-blå p-1"> </div>
   
-  <ProjectThumber title="FIRST SEMESTER PROJECT" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING" video="../../Video/hands.mp4" link="/projects/1"></ProjectThumber>
+  <ProjectThumber title="FIRST SEMESTER PROJECT" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING" video="/video/hands.mp4" link="/projects/1"></ProjectThumber>
 
   <!--BORDER-->
     <div class=" border-b border-blå p-1"> </div>
 
 <!-- Creative Coding Thumbnail-->
-     <ProjectThumber title="CREATIVE CODING" tags="DRAWING WITH PROCESSING" video="../../Video/Processing.mp4" link="/projects/2"></ProjectThumber>
+     <ProjectThumber title="CREATIVE CODING" tags="DRAWING WITH PROCESSING" video="/video/Processing.mp4" link="/projects/2"></ProjectThumber>
 
 
 <!--Border-->
