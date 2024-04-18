@@ -33,7 +33,7 @@ export default {
       
     
     </ul>
-    <img src="../../images/vin.jpg" alt="Project 2" class=" justify-self-end col-start-1">
+    <img src="../../images/Vin.jpg" alt="Project 2" class=" justify-self-end col-start-1">
     </p>
         <img src="../../images/face.svg" alt="illustration 1" class=" justify-self-end col-start-2 h-3/4">
   
