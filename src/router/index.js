@@ -9,7 +9,7 @@ import ProjectFour from '../views/ProjectFour.vue'
 
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
