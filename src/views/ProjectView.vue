@@ -48,7 +48,7 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
   <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
   </h1>
 <!--Media-->
-    <img src="../../images/makrel1.jpg" alt="Project 4" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
+    <img src="../../images/Makrel1.jpg" alt="Project 4" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
 </div>
 
 
