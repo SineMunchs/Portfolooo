@@ -22,13 +22,14 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
     <div class=" border-b border-blå p-1"> </div>
 
 <!-- Creative Coding Thumbnail-->
-     <ProjectThumber title="CREATIVE CODING" tags="DRAWING WITH PROCESSING" video="../../Video/Processing copy.mp4" link="/projects/2"></ProjectThumber>
+     <ProjectThumber title="CREATIVE CODING" tags="DRAWING WITH PROCESSING" video="../../Video/Processing.mp4" link="/projects/2"></ProjectThumber>
 
-    <div class=" border-b border-blå p-1"> </div>
 
 <!--Border-->
-<div class=" mt-1 ml-1 grid grid-cols-2">
+<div class=" border-b border-blå p-1"> </div>
 
+
+<div class=" mt-1 ml-1 grid grid-cols-2">
 <!--Text-->
   <a href="/projects/3" class="elite text-blå font-bold text-6xl     hover:text-blue-600 tracking-widest"> VISUAL LANGUAGE</a>
   <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY

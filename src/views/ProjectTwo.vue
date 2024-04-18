@@ -26,13 +26,6 @@ export default {
  <p class="col-start-1 elite text-blå p-2">   
     Exploring the intersection of technology and art through creative coding, particularly using Processing — a flexible software sketchbook geared towards visual arts. I leverage this platform to develop intricate digital artwork and interactive visualizations. Additionally. Extends into the physical with the AxiDraw, a versatile pen plotter, which translates digital creations into precise, tangible artworks on paper. This blend of digital fluency and physical execution showcases my ability to bridge diverse mediums and bring computational designs to life.
 
-
-
-
-
-
-
-
     <ul class="list-disc p-4 marker:text-blå elite tracking-widest space-y-4">
         <LI>PROCESSING</LI>
         <li>AXIDRAWER</li>
