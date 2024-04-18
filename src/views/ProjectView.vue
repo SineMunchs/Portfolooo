@@ -31,7 +31,7 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 
 <div class=" mt-1 ml-1 grid grid-cols-2">
 <!--Text-->
-  <a RouterLink to="/projects/3" class="elite text-blå font-bold text-6xl     hover:text-blue-600 tracking-widest"> VISUAL LANGUAGE</a>
+<RouterLink to="/projects/3" class="elite text-blå font-bold text-6xl hover:text-blue-600 tracking-widest"> VISUAL LANGUAGE</RouterLink>
   <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
   </h1>
   <!--Media-->
@@ -45,7 +45,7 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 <!-- COLOR Observation-->
 <div class=" mt-1 ml-1 grid grid-cols-2">
 <!--Text-->
-    <a RouterLink to="/projects/4" class="elite text-blå font-bold text-6xl hover:text-blue-600 tracking-widest"> COLOR OBSERVATION </a>
+   <RouterLink to="/projects/4" class="elite text-blå font-bold text-6xl hover:text-blue-600 tracking-widest"> COLOR OBSERVATION </RouterLink>
   <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
   </h1>
 <!--Media-->
