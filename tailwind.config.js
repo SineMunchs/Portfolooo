@@ -10,6 +10,7 @@ export default {
     extend: {    
       colors: {
       blå:'#2C4D9B',
+      blau:'#001AFF',
     },
    },
   },

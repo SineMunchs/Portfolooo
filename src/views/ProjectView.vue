@@ -22,7 +22,7 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
     <div class=" border-b border-blå p-1"> </div>
 
 <!-- Creative Coding Thumbnail-->
-     <ProjectThumber title="CREATIVE CODING" tags="DRAWING WITH PROCISSING" video="../../Video/Processing copy.mp4" link="/projects/2"></ProjectThumber>
+     <ProjectThumber title="CREATIVE CODING" tags="DRAWING WITH PROCESSING" video="../../Video/Processing copy.mp4" link="/projects/2"></ProjectThumber>
 
     <div class=" border-b border-blå p-1"> </div>
 
