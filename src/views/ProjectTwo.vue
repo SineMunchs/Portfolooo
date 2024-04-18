@@ -54,7 +54,7 @@ export default {
 
 
 <div>
-<video class="h-25% w-25% col-start-2 p-1" controls muted>
+<video class="h-3/4 w-25% col-start-2 p-9" controls muted>
   <source src="../../Video/HELLO_WORLD.mp4" type="video/mp4">
   </video>
 
