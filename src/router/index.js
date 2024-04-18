@@ -46,7 +46,7 @@ const router = createRouter({
     {
       path: '/projects/4',
       name: 'Project Four',
-      component: ProjectThree
+      component: ProjectFour
     },
   ]
 })

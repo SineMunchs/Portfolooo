@@ -29,6 +29,7 @@ export default {
 
     <ul class="list-disc p-7 marker:text-blå elite tracking-widest space-y-4">
         <LI>ILLUSTRATOR</LI>
+        <li>INTERACTION OF COLOR <br>BY JOSE ALBERS</li>
       
     
     </ul>
@@ -41,7 +42,7 @@ export default {
 <!--BORDER-->
 <div class=" border-b border-blå t--10"> </div>
 <div class=" grid grid-cols-2">
-    <img src="../../images/illusion.png" alt="Project 3" class=" col-start-1 row-start-3 p-2 ">
-<img src="../../images/space.svg" alt="Project 3" class=" col-start-2 row-start-3 p-2">
+    <img src="../../images/illusion.png" alt="Project 3" class=" col-start-2 row-start-3 justify-self-end p-2 ">
+
 </div>
 </template>

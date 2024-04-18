@@ -18,14 +18,17 @@ export default {
 </div>
 
 <!--BORDER-->
-<div class=" border-b border-blå mt-20"> </div>
+<div class=" border-b border-blå mt-10"> </div>
 
 <!--Beskrivelse-->
 <div class=" grid grid-cols-2">
-     <p class="col-start-1  elite text-blå">   
+     <p class="col-start-1  elite text-blå p-2 tracking-widest">   
         For this project, we had to seek out real-world objects that showcase a diverse palette of colors, tones, and shades. It could have been items that were photographed or physically collected, offering a tangible exploration of color interaction and variety. 
     <br><br>
         Based on your palette, you will create a composition or pattern using geometric shapes, where you can play with swapping colors to achieve various results. This method allows for an exploration of how different color combinations can alter the visual impact of the design.
+        <ul class="list-disc p-7 marker:text-blå elite tracking-widest space-y-4">
+        <LI>ILLUSTRATOR</LI>
+        </ul>
     </p>
         <img src="../../images/Makrel.jpg" alt="Project 1" class=" justify-self-end col-start-2">
 </div>

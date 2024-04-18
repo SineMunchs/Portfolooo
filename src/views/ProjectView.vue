@@ -30,7 +30,7 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 <div class=" mt-1 ml-1 grid grid-cols-2">
 
 <!--Text-->
-  <a href="/projects/3" class="elite text-blå font-bold text-6xl     hover:text-blue-600"> VISUAL LANGUAGE</a>
+  <a href="/projects/3" class="elite text-blå font-bold text-6xl     hover:text-blue-600 tracking-widest"> VISUAL LANGUAGE</a>
   <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
   </h1>
   <!--Media-->
