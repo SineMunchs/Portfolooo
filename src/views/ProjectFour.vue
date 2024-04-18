@@ -30,7 +30,7 @@ export default {
         <LI>ILLUSTRATOR</LI>
         </ul>
     </p>
-        <img src="../../images/Makrel.jpg" alt="Project 1" class=" justify-self-end col-start-2">
+        <img src="../../images/Makrel.jpg" alt="Project 1" class="justify-self-end col-start-2">
 </div>
 
 <!--BORDER-->
@@ -38,7 +38,8 @@ export default {
 
 <!--Illustrationer-->
 <div>
-        <img src="../../images/ColorObs.jpg" alt="ColorObs" class="h-100% w-100% justify-self-stretch">
+        <img src="../../images/ColorObs.jpg" alt="ColorObs" class=" w-full p-8">
 </div>
+<div class=" border-b border-blå "> </div>
 
 </template>
