@@ -41,7 +41,7 @@ export default {
   </p>
 
   <video class="h-25% w-25% col-start-2" autoplay loop muted>
-  <source src="../../Video/molnar.mp4" type="video/mp4">
+  <source src="../../Video/Molnar.mp4" type="video/mp4">
   </video>
 
 </div>
