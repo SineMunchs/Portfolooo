@@ -6,6 +6,7 @@ import ProjectOne from '../views/ProjectOne.vue'
 import ProjectTwo from '../views/ProjectTwo.vue'
 import ProjectThree from '../views/ProjectThree.vue'
 import ProjectFour from '../views/ProjectFour.vue'
+import Projectnew from '@/views/ProjectNew.vue'
 
 
 const router = createRouter({
@@ -46,6 +47,11 @@ const router = createRouter({
       path: '/projects/4',
       name: 'Project Four',
       component: ProjectFour
+    },
+    {
+      path: '/projects/new',
+      name: 'Project New',
+      component: Projectnew
     },
   ]
 })
