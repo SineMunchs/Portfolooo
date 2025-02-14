@@ -1,7 +1,14 @@
 <template>
-    <div class="mt-20 ml-1 blue elite text-blå text-9xl tracking-widest flex grid-cols-2" >SINE MUNCH
-      <img src="../../images/Smil.svg" alt="Smiley" class="h-8 w-8 grid col-start-2 hover:animate-spin">
-      </div>
+  <div className="mt-20 ml-1 flex items-center">
+      <h1 className="text-blå text-7xl md:text-8xl lg:text-9xl tracking-widest">
+        SINE MUNCH
+      </h1>
+      <img
+        src="../../images/Smil.svg"
+        alt="Smiley"
+        className="h-8 w-8 ml-2 mb-14 hover:animate-spin"
+      />
+    </div>
      
     
     
