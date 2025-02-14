@@ -17,32 +17,37 @@
     </p>
     </div>
 
-    <div class="mt-50 md:mt-50 md:absolute md:bottom-0 md:right-0 p-2 space-y-4 elite underline text-blå text-9xl tracking-widest">
-      
-    <!--LINKEDIN-->
-    
-    <a href="https://www.linkedin.com/in/sine-munch-b992461b8/" target="_blank" class="flex items-center mb-2 hover:animate-pulse">
-      <img src="../../images/arrow.svg" alt="LinkedIn Arrow" class="h-12 w-16 md:h-15 md:w-20" />
-      <span>LinkedIn</span>
+    <div class="mt-12 p-2 space-y-2 md:space-y-4 md:absolute md:bottom-0 md:right-0">
+    <!-- LINKEDIN -->
+    <a href="https://www.linkedin.com/in/sine-munch-b992461b8/" 
+       target="_blank" 
+       class="flex items-center hover:animate-pulse">
+        <img src="../../images/arrow.svg" 
+             alt="LinkedIn Arrow" 
+             class="h-8 w-12 md:h-12 md:w-16" />
+        <span class="text-3xl md:text-9xl tracking-widest underline text-blå">LinkedIn</span>
     </a>
-    <!--BEHANCE-->
-    <a href="https://www.behance.net/sinemunch1" target="_blank" class=" flex items-center hover:animate-pulse">
-      <img src="../../images/arrow.svg" alt="Arrow" class="h-12 w-16 md:h-15 md:w-20" />
-      <span>Behance</span>
-    </a>
-    <!--instagram-->
-    <a href="https://www.instagram.com/codedstuff/" target="_blank" class="flex items-center mb-2 hover:animate-pulse">
-      <img src="../../images/arrow.svg" alt="Instagram Arrow" class="h-12 w-16 md:h-15 md:w-20" />
-      <span>Instagram</span>
-    </a>
-  </div>
 
-        <!--MAIL
-    <div class="flex items-center grid-3 mb-4 ">
-      <img src="../../images/mail.svg" alt="Email Icon" class="h-14 w-20 mr-2 " />
-      <a href="mailto:munchsine@gmail.com">munchsine@gmail.com</a>
-    </div> 
-    -->
+    <!-- BEHANCE -->
+    <a href="https://www.behance.net/sinemunch1" 
+       target="_blank" 
+       class="flex items-center hover:animate-pulse">
+        <img src="../../images/arrow.svg" 
+             alt="Arrow" 
+             class="h-8 w-12 md:h-12 md:w-16" />
+        <span class="text-3xl md:text-9xl tracking-widest underline text-blå">Behance</span>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a href="https://www.instagram.com/codedstuff/" 
+       target="_blank" 
+       class="flex items-center hover:animate-pulse">
+        <img src="../../images/arrow.svg" 
+             alt="Instagram Arrow" 
+             class="h-8 w-12 md:h-12 md:w-16" />
+        <span class="text-3xl md:text-9xl tracking-widest underline text-blå">Instagram</span>
+    </a>
+</div>
     
 
 </template>
