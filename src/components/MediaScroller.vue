@@ -13,11 +13,11 @@ export default {
     return {
       // Array of images
       images: [
+        { src: "/picture/projektnew.jpg", alt: "Billedestil" },
         { src: "/picture/projekt1.jpg", alt: "hosho" },
         { src: "/picture/projekt2.jpg", alt: "visuel identitet" },
         { src: "/picture/projekt4.png", alt: "Illustrationer" },
         { src: "/picture/projekt3.jpg", alt: "Billedestil" },
-        { src: "/picture/projektnew.jpg", alt: "Billedestil" }
       ]
     };
   }

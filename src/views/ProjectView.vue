@@ -11,8 +11,13 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 </script>
 
 <template>
+  
   <div class="mt-20"></div>
   
+  <div class=" border-b border-blå p-1"> </div>
+  
+  <ProjectThumber title="THIRD SEMESTER PROJECT" tags="UI DESIGN, VISUAL IDENTITY, PROTOTYPING, RESEARCH, FIGMA, INTERACTION DESIGN, USER EXPERIENCE" video="/video/interactive.mp4" link="/projects/new"></ProjectThumber>
+
   <!--BORDER-->
   <div class=" border-b border-blå p-1"> </div>
   

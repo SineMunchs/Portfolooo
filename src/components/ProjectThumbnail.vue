@@ -12,12 +12,10 @@ export default {
 
 <template>
     <!-- Thumbnail -->
-    <div class="elite">
-        <img :src="image" alt="Project thumbnail">
-    <h2 class="elite font-bold mt-30">{{ title }}</h2>
-
-
-    <a :href="url" class="text-blau"></a>
-    </div>
-    
+    <a :href="url">
+        <div class="thumbnail">
+            <img :src="image" alt="Project Thumbnail">
+            <div class="thumbnail-text">{{ title }}</div>
+        </div>
+    </a>
 </template>

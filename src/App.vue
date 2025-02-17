@@ -6,16 +6,25 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
 
   <!-- Hovedmenu -->
-  <nav class=" fixed flex  ml-20 top-2 gap-10 w-[96vw] justify-items-left elite font-bold text-blå">
-  
-
-  <RouterLink to="/" class="scale-y-[-1] eltie font-bold text-2xl hover:text-blue-600 tracking-widest ">HELLO WORLD</RouterLink>
-  <RouterLink to="/projects" class="elite font-bold tracking-widest hover:text-blue-600 text-2xl ">WORK</RouterLink>
-  <RouterLink to="/about" class="elite font-bold tracking-widest hover:text-blue-600 text-2xl">ABOUT</RouterLink>
-  
-  </nav>
-
-  <!-- Project view  -->
+  <nav class="fixed flex flex-wrap px-4 md:ml-20 top-2 w-full md:w-[96vw] gap-4 md:gap-10 elite font-bold text-blå">
+    <RouterLink 
+        to="/" 
+        class="scale-y-[-1] text-lg md:text-2xl hover:text-blå tracking-widest">
+        HELLO WORLD
+    </RouterLink>
+    
+    <RouterLink 
+        to="/projects" 
+        class="text-lg md:text-2xl tracking-widest hover:text-blå">
+        WORK
+    </RouterLink>
+    
+    <RouterLink 
+        to="/about" 
+        class="text-lg md:text-2xl tracking-widest hover:text-blå">
+        ABOUT
+    </RouterLink>
+</nav>
   <RouterView/>
 
 
