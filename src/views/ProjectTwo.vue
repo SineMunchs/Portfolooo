@@ -14,10 +14,9 @@ export default {
 
 <template>   
 <div class=" mt-20 ml-1">
-  <h1 class="flex elite font-bold text-blå text-9xl">CREATIVE CODING</h1>
+  <h1 class="flex elite  text-blå text-9xl">Creative Coding</h1>
 
-  <h1 class="flex elite text-blå row-start-2 p-2"> DRAWING WITH PROCESSING
-  </h1>
+  <h1 class="flex elite text-blå row-start-2 p-2"> Drawing with Processing </h1>
 </div>
 
 <!--BORDER-->

@@ -21,13 +21,15 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
   <!--BORDER-->
   <div class=" border-b border-blå p-1"> </div>
   
-  <ProjectThumber title="FIRST SEMESTER PROJECT" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING" video="/video/hands.mp4" link="/projects/1"></ProjectThumber>
+  <ProjectThumber title="Jewellery Generator
+
+" tags="Form, Color Theory Typography, Drawing, Creativity, 3D Modelling, Programming, Processing" video="/video/hands.mp4" link="/projects/1"></ProjectThumber>
 
   <!--BORDER-->
     <div class=" border-b border-blå p-1"> </div>
 
 <!-- Creative Coding Thumbnail-->
-     <ProjectThumber title="CREATIVE CODING" tags="DRAWING WITH PROCESSING" video="/video/Processing.mp4" link="/projects/2"></ProjectThumber>
+     <ProjectThumber title="Creative Coding" tags="Drawing with Processing" video="/video/Processing.mp4" link="/projects/2"></ProjectThumber>
 
 
 <!--Border-->
@@ -36,7 +38,7 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 
 <div class=" mt-1 ml-1 grid grid-cols-2">
 <!--Text-->
-<RouterLink to="/projects/3" class="elite text-blå font-bold text-6xl hover:text-blue-600 tracking-widest"> VISUAL LANGUAGE</RouterLink>
+<RouterLink to="/projects/3" class="elite text-blå text-6xl hover:text-blue-600 tracking-widest"> VISUAL LANGUAGE</RouterLink>
   <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
   </h1>
   <!--Media-->
@@ -50,7 +52,7 @@ import ProjectThumber from '@/components/ProjectThumber.vue'
 <!-- COLOR Observation-->
 <div class=" mt-1 ml-1 grid grid-cols-2">
 <!--Text-->
-   <RouterLink to="/projects/4" class="elite text-blå font-bold text-6xl hover:text-blue-600 tracking-widest"> COLOR OBSERVATION </RouterLink>
+   <RouterLink to="/projects/4" class="elite text-blå text-6xl hover:text-blue-600 tracking-widest"> COLOR OBSERVATION </RouterLink>
   <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
   </h1>
 <!--Media-->

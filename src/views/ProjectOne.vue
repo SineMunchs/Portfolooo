@@ -15,7 +15,7 @@ export default {
 
 <template>   
 <div class=" mt-20 ml-1">
-  <h1 class="flex elite font-bold text-blå text-9xl">JEWELLERY GENERATOR</h1>
+  <h1 class="flex elite text-blå text-9xl">JEWELLERY GENERATOR</h1>
 
   <h1 class="flex elite text-blå row-start-2 p-2">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING
   </h1>

@@ -12,8 +12,8 @@ export default {
 
 <template>   
 <div class=" mt-20 ml-1">
-    <h1 class="flex elite font-bold text-blå text-9xl">VISUAL LANGUAGE</h1>
-    <h1 class="flex elite text-blå row-start-2 p-2"> FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
+    <h1 class="flex elite text-blå text-9xl">Visual Language</h1>
+    <h1 class="flex elite text-blå row-start-2 p-2"> Form, color theory, typography, drawing, creativity
     </h1>
 </div>
 
@@ -28,8 +28,8 @@ export default {
     Additionally, sessions on typography equip students with the skills to select and manipulate type for clarity, aesthetic appeal, and harmony in design projects. These classes are instrumental in building a solid foundation in visual communication, enabling students to apply these principles creatively across various design challenges.
 
     <ul class="list-disc p-7 marker:text-blå elite tracking-widest space-y-4">
-        <LI>ILLUSTRATOR</LI>
-        <li>INTERACTION OF COLOR <br>BY JOSE ALBERS</li>
+        <LI>Illustrator</LI>
+        <li>Interaction of Color <br>By Jose ALbers</li>
       
     
     </ul>
