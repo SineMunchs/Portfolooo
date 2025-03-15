@@ -29,9 +29,9 @@ export default {
         ],
         jewellery: [
           "/video/hands.mp4",
-          "/images/jewellery2.jpg",
-          "/images/jewellery3.jpg",
-          "/images/jewellery4.jpg"
+          "/video/generator.mp4",
+          "/video/generator.mp4",
+          "/video/generator.mp4"
         ],
         creativeCoding: [
           "/images/processing1.jpg",

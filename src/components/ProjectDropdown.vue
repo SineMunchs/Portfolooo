@@ -44,6 +44,15 @@ export default {
       isOpen: false
     }
   },
+  computed: {
+    // Separate videos and images from gallery items
+    videoItems() {
+      return this.galleryItems.filter(item => this.isVideo(item));
+    },
+    imageItems() {
+      return this.galleryItems.filter(item => !this.isVideo(item));
+    }
+  },
   methods: {
     toggleDropdown() {
       this.isOpen = !this.isOpen
@@ -154,33 +163,44 @@ export default {
               </div>
             </div>
             
-            <!-- Gallery Section (if items exist) -->
+            <!-- Gallery Section (horizontal scrollable row) -->
             <div v-if="galleryItems && galleryItems.length > 0" class="col-span-1 md:col-span-2">
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-                <div 
-                  v-for="(item, index) in galleryItems" 
-                  :key="index"
-                  class="w-full h-32 md:h-40"
-                >
-                  <!-- Video (GIF-style) -->
-                  <video 
-                    v-if="isVideo(item)" 
-                    class="w-full h-full object-cover border border-gray-100" 
-                    autoplay
-                    loop
-                    muted
-                    playsinline
+              
+              <!-- Video gallery in a scrollable row -->
+              <div v-if="videoItems.length > 0" class="mb-6">
+                <div class="gallery-container">
+                  <div 
+                    v-for="(item, index) in videoItems" 
+                    :key="`video-${index}`"
+                    class="gallery-item"
                   >
-                    <source :src="item" type="video/mp4">
-                  </video>
-                  
-                  <!-- Image -->
-                  <img 
-                    v-else
-                    :src="item" 
-                    :alt="`${title} item ${index+1}`" 
-                    class="w-full h-full object-cover border border-gray-100"
+                    <video 
+                      class="object-contain w-auto h-auto max-h-60 video-responsive" 
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                    >
+                      <source :src="item" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Image gallery in a scrollable row -->
+              <div v-if="imageItems.length > 0">
+                <div class="gallery-container">
+                  <div 
+                    v-for="(item, index) in imageItems" 
+                    :key="`image-${index}`"
+                    class="gallery-item"
                   >
+                    <img 
+                      :src="item" 
+                      :alt="`${title} item ${index+1}`" 
+                      class="object-contain w-auto h-auto max-h-60"
+                    >
+                  </div>
                 </div>
               </div>
             </div>
@@ -203,5 +223,45 @@ export default {
 .slide-leave-to {
   max-height: 0;
   opacity: 0;
+}
+
+/* Horizontal scrollable gallery */
+.gallery-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.gallery-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  min-width: 200px;
+  max-width: 300px;
+  height: auto;
+}
+
+.video-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gallery-item {
+    min-width: 150px;
+    max-width: 85vw;
+  }
+  
+  .gallery-container {
+    gap: 0.5rem;
+  }
 }
 </style>
