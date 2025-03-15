@@ -1,89 +1,122 @@
 <script>
 import ProjectThumbnail from '@/components/ProjectThumbnail.vue'
 import ProjectThumber from '@/components/ProjectThumber.vue'
- 
- export default {
-    components: {
-        ProjectThumbnail,
-        ProjectThumber,
-    },
- }
+import ProjectDropdown from '@/components/ProjectDropdown.vue'
+
+export default {
+  components: {
+    ProjectThumbnail,
+    ProjectThumber,
+    ProjectDropdown
+  },
+  data() {
+    return {
+      // Project descriptions (keeping original text)
+      projectDetails: {
+        thirdSemester: "A comprehensive UI design project exploring visual identity concepts and interactive prototyping.",
+        jewellery: "An experimental generator for creating unique jewellery designs using algorithmic processes.",
+        creativeCoding: "Experiments with Processing to create generative art and interactive visualizations.",
+        visualLanguage: "An exploration of form, color theory, typography and drawing techniques.",
+        colorObservation: "A study of color relationships and their application in visual design."
+      },
+      // Gallery images for each project
+      projectGalleries: {
+        thirdSemester: [
+          "/images/battle1.jpg",
+          "/images/battle2.jpg",
+          "/images/battle3.jpg",
+          "/images/battle4.jpg"
+        ],
+        jewellery: [
+          "/video/hands.mp4",
+          "/images/jewellery2.jpg",
+          "/images/jewellery3.jpg",
+          "/images/jewellery4.jpg"
+        ],
+        creativeCoding: [
+          "/images/processing1.jpg",
+          "/images/processing2.jpg",
+          "/images/processing3.jpg",
+          "/images/processing4.jpg"
+        ],
+        visualLanguage: [
+          "/images/visual1.jpg",
+          "/images/visual2.jpg",
+          "/images/visual3.jpg",
+          "/images/visual4.jpg"
+        ],
+        colorObservation: [
+          "/images/color1.jpg",
+          "/images/color2.jpg",
+          "/images/color3.jpg",
+          "/images/color4.jpg"
+        ]
+      }
+    }
+  }
+}
 </script>
 
 <template>
-  
   <div class="mt-20"></div>
   
-  <div class=" border-b border-blå p-1"> </div>
+  <!-- Top border -->
+  <div class="border-b border-blå p-1"></div>
   
-  <ProjectThumber title="THIRD SEMESTER PROJECT" tags="UI DESIGN, VISUAL IDENTITY, PROTOTYPING, RESEARCH, FIGMA, INTERACTION DESIGN, USER EXPERIENCE" video="/video/interactive.mp4" link="/projects/new"></ProjectThumber>
-
-  <!--BORDER-->
-  <div class=" border-b border-blå p-1"> </div>
+  <!-- First Project - Keeping original text and adding gallery -->
+  <ProjectDropdown 
+    title="Interactive Design"  
+    date="21/06/2024"
+    category="Identity and visualization"
+    tags="UI design, UX, visual identity, prototyping, research, figma, interaction design" 
+    thumbnail="/images/face.svg"
+    :description="projectDetails.thirdSemester"
+    :galleryImages="projectGalleries.thirdSemester"
+  />
   
-  <ProjectThumber title="Jewellery Generator
-
-" tags="Form, Color Theory Typography, Drawing, Creativity, 3D Modelling, Programming, Processing" video="/video/hands.mp4" link="/projects/1"></ProjectThumber>
-
-  <!--BORDER-->
-    <div class=" border-b border-blå p-1"> </div>
-
-<!-- Creative Coding Thumbnail-->
-     <ProjectThumber title="Creative Coding" tags="Drawing with Processing" video="/video/Processing.mp4" link="/projects/2"></ProjectThumber>
-
-
-<!--Border-->
-<div class=" border-b border-blå p-1"> </div>
-
-
-<div class=" mt-1 ml-1 grid grid-cols-2">
-<!--Text-->
-<RouterLink to="/projects/3" class="elite text-blå text-6xl hover:text-blue-600 tracking-widest"> VISUAL LANGUAGE</RouterLink>
-  <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
-  </h1>
-  <!--Media-->
-  <img src="../../images/Figur_color.png" alt="Project 3" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
-</div>
-
-<!--BORDER-->
-  <div class=" border-b border-blå "> </div>
-
-
-<!-- COLOR Observation-->
-<div class=" mt-1 ml-1 grid grid-cols-2">
-<!--Text-->
-   <RouterLink to="/projects/4" class="elite text-blå text-6xl hover:text-blue-600 tracking-widest"> COLOR OBSERVATION </RouterLink>
-  <h1 class="flex elite text-blå row-start-2 tracking-widest">FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY
-  </h1>
-<!--Media-->
-    <img src="../../images/Makrel1.jpg" alt="Project 4" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
-</div>
-
-
-<!--BORDER-->
-<div class=" border-b border-blå p-1"> </div>
-
-<!--PHOTO
-  <div class=" mt-1 ml-1 grid grid-cols-2">
-    <a href="/projects/4" class="elite text-blå font-bold text-6xl     hover:text-blue-600">PHOTO</a>
-  <h1 class="flex elite text-blå row-start-2">HI AI
-  </h1>
-  <img src="../../images/AI.png" alt="Project 1" class="justify-self-end object-cover h-60 w-96 row-span-2 col-span-2 row-start-1 row-end-4">
-</div> 
-
-<div class=" border-b border-blå p-1"> </div>
-
-
-CODING Kode som sprog 
-<ProjectThumber title="CODING" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY" video="../../Video/Panda.mp4" link="/projects/6"></ProjectThumber>
-
-BORDER
-<div class=" border-b border-blå p-1"> </div>
+  <ProjectDropdown 
+  title="Jewellery Generator" 
+  date="15/04/2024"
+  category="Branding"
+  tags="Form, Color Theory Typography, Drawing, Creativity, 3D Modelling, Programming, Processing" 
+  thumbnail="/images/face.svg"
+  :description="projectDetails.jewellery"
+  :galleryItems="projectGalleries.jewellery"
+/>
   
-BLENDER 
-<ProjectThumber title="BLENDER" tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY, 3D MODELLING, PROGRAMMING" video="../../Video/Mike.mp4" link="/projects/5"></ProjectThumber>
-
-<div class=" border-b border-blå p-1"> </div>
--->
-
+  <!-- Third Project -->
+  <ProjectDropdown 
+    title="Creative Coding" 
+    date="17/02/2025"
+    category="Fun projects"
+    tags="Drawing with Processing" 
+    thumbnail="/images/face.svg"
+    :description="projectDetails.creativeCoding"
+    :galleryImages="projectGalleries.creativeCoding"
+  />
+  
+  <!-- Fourth Project -->
+  <ProjectDropdown 
+    title="VISUAL LANGUAGE" 
+    date="10/09/2023"
+    category="Fun project"
+    tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY" 
+    image="../../images/Figur_color.png"
+    thumbnail="/images/face.svg"
+    :description="projectDetails.visualLanguage"
+    :galleryImages="projectGalleries.visualLanguage"
+  />
+  
+  <!-- Fifth Project -->
+  <ProjectDropdown 
+    title="COLOR OBSERVATION" 
+    date="10/09/2023"
+    category="Fun project"
+    tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY" 
+    image="../../images/Makrel1.jpg"
+    thumbnail="/images/face.svg"
+    :description="projectDetails.colorObservation"
+    :galleryImages="projectGalleries.colorObservation"
+  />
+  
 </template>
