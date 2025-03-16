@@ -17,7 +17,7 @@ export default {
         jewellery: "An experimental generator for creating unique jewellery designs using algorithmic processes.",
         creativeCoding: "Experiments with Processing to create generative art and interactive visualizations.",
         visualLanguage: "An exploration of form, color theory, typography and drawing techniques.",
-        colorObservation: "<< Sea to Shape >> From silvery fish on ice, I distilled a palette of blues, grays, and cool neutrals. These colors—borrowed from the Bornholm deli, the Mackrel, turned into flowing geometric abstractions. Each curved composition breathes differently despite sharing the same oceanic palette, revealing how arrangement alone shifts visual harmony."
+        colorObservation: "<< Sea to Shape >> From silvery makrel on ice, I distilled a palette of blues, grays, and cool neutrals. These colors—borrowed from the Bornholm deli, the Mackrel, turned into flowing geometric abstractions. Each curved composition breathes differently despite sharing the same oceanic palette, revealing how arrangement alone shifts visual harmony."
       },
       // Gallery images for each project
       projectGalleries: {
@@ -40,9 +40,8 @@ export default {
           "/images/processing4.jpg"
         ],
         visualLanguage: [
-          "/images/visual1.jpg",
-          "/images/visual2.jpg",
-          "/images/visual3.jpg",
+          "/images/face.svg",
+          "/images/vin.jpg",
           "/images/visual4.jpg"
         ],
         colorObservation: [
@@ -94,7 +93,7 @@ export default {
   
   <!-- Fourth Project -->
   <ProjectDropdown
-    title="VISUAL LANGUAGE"
+    title="Visual Language"
     date="10/09/2023"
     category="Fun project"
     tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY"
