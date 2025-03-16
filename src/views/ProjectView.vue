@@ -17,7 +17,7 @@ export default {
         jewellery: "An experimental generator for creating unique jewellery designs using algorithmic processes.",
         creativeCoding: "Experiments with Processing to create generative art and interactive visualizations.",
         visualLanguage: "An exploration of form, color theory, typography and drawing techniques.",
-        colorObservation: "A study of color relationships and their application in visual design."
+        colorObservation: "<< Sea to Shape >> From silvery fish on ice, I distilled a palette of blues, grays, and cool neutrals. These colors—borrowed from the Bornholm deli, the Mackrel, turned into flowing geometric abstractions. Each curved composition breathes differently despite sharing the same oceanic palette, revealing how arrangement alone shifts visual harmony."
       },
       // Gallery images for each project
       projectGalleries: {
@@ -46,11 +46,8 @@ export default {
           "/images/visual4.jpg"
         ],
         colorObservation: [
-          "/images/color1.jpg",
-          "/images/color2.jpg",
-          "/images/color3.jpg",
-          "/images/color4.jpg"
-        ]
+          "/images/Makrel.jpg", 
+          "/images/colorObs.jpg",        ]
       }
     }
   }
@@ -64,59 +61,56 @@ export default {
   <div class="border-b border-blå p-1"></div>
   
   <!-- First Project - Keeping original text and adding gallery -->
-  <ProjectDropdown 
-    title="Interactive Design"  
+  <ProjectDropdown
+    title="Interactive Design" 
     date="21/06/2024"
     category="Identity and visualization"
-    tags="UI design, UX, visual identity, prototyping, research, figma, interaction design" 
+    tags="UI design, UX, visual identity, prototyping, research, figma, interaction design"
     thumbnail="/images/face.svg"
     :description="projectDetails.thirdSemester"
-    :galleryImages="projectGalleries.thirdSemester"
+    :galleryItems="projectGalleries.thirdSemester"
   />
   
-  <ProjectDropdown 
-  title="Jewellery Generator" 
-  date="15/04/2024"
-  category="Branding"
-  tags="Form, Color Theory Typography, Drawing, Creativity, 3D Modelling, Programming, Processing" 
-  thumbnail="/images/face.svg"
-  :description="projectDetails.jewellery"
-  :galleryItems="projectGalleries.jewellery"
-/>
+  <ProjectDropdown
+    title="Jewellery Generator"
+    date="15/04/2024"
+    category="Branding"
+    tags="Form, Color Theory Typography, Drawing, Creativity, 3D Modelling, Programming, Processing"
+    thumbnail="/images/hands.png"
+    :description="projectDetails.jewellery"
+    :galleryItems="projectGalleries.jewellery"
+  />
   
   <!-- Third Project -->
-  <ProjectDropdown 
-    title="Creative Coding" 
+  <ProjectDropdown
+    title="Creative Coding"
     date="17/02/2025"
     category="Fun projects"
-    tags="Drawing with Processing" 
-    thumbnail="/images/face.svg"
+    tags="Drawing with Processing"
+    thumbnail="/images/colorObs.jpg"
     :description="projectDetails.creativeCoding"
-    :galleryImages="projectGalleries.creativeCoding"
+    :galleryItems="projectGalleries.creativeCoding"
   />
   
   <!-- Fourth Project -->
-  <ProjectDropdown 
-    title="VISUAL LANGUAGE" 
+  <ProjectDropdown
+    title="VISUAL LANGUAGE"
     date="10/09/2023"
     category="Fun project"
-    tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY" 
-    image="../../images/Figur_color.png"
+    tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY"
     thumbnail="/images/face.svg"
     :description="projectDetails.visualLanguage"
-    :galleryImages="projectGalleries.visualLanguage"
+    :galleryItems="projectGalleries.visualLanguage"
   />
   
   <!-- Fifth Project -->
-  <ProjectDropdown 
-    title="COLOR OBSERVATION" 
+  <ProjectDropdown
+    title="Color Observation"
     date="10/09/2023"
-    category="Fun project"
-    tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY" 
-    image="../../images/Makrel1.jpg"
-    thumbnail="/images/face.svg"
+    category="Project"
+    tags="FORM, COLOR THEORY, TYPOGRAPHY, DRAWING, CREATIVITY"
+    thumbnail="/images/Makrel1.jpg"
     :description="projectDetails.colorObservation"
-    :galleryImages="projectGalleries.colorObservation"
+    :galleryItems="projectGalleries.colorObservation"
   />
-  
 </template>
