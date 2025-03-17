@@ -39,8 +39,16 @@ export default {
 
         ],
         creativeCoding: [
-        "/video/KusamaYayoi_Processing.mov",
-        "/video/cc3d.mov",          
+        "/video/ccP5.mp4",  
+        "/video/ccMesh.mp4",             
+        "/video/Acaii.mp4", 
+        "/video/KusamaYayoi_Processing.mp4",      
+        "/video/Molnar.mp4",
+        "/video/ccHello.mp4",   
+
+          
+   
+          
         "/images/processing3.jpg",
           "/images/processing4.jpg"
         ],
@@ -93,7 +101,7 @@ export default {
     date="17/02/2025"
     category="Fun projects"
     tags="Drawing with Processing"
-    thumbnail="/images/ccThumbnail.png"
+    thumbnail="/images/creativeThumbnail.png"
     :description="projectDetails.creativeCoding"
     :galleryItems="projectGalleries.creativeCoding"
   />
