@@ -24,7 +24,7 @@ export default {
     },
     description: {
       type: String,
-      default: 'Project description goes here.'
+      default: 'For this semester project, I tackled rising neck pain among youth by creating NEO—a gamified solution where users draw with their nose to improve mobility. My research informed a design balancing medical credibility with playful engagement through achievements, social challenges, and a symptom-tracking slider. The minimalist blue interface with a custom mascot maintains connection to Danish Physiotherapists while appealing to teens. This project showcased my ability to transform health education into interactive experiences that feel engaging rather than clinical.'
     },
     date: {
       type: String,
@@ -41,7 +41,9 @@ export default {
   },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      lightboxOpen: false,
+      currentLightboxIndex: 0
     }
   },
   computed: {
@@ -51,6 +53,9 @@ export default {
     },
     imageItems() {
       return this.galleryItems.filter(item => !this.isVideo(item));
+    },
+    currentLightboxItem() {
+      return this.galleryItems[this.currentLightboxIndex];
     }
   },
   methods: {
@@ -59,7 +64,41 @@ export default {
     },
     isVideo(path) {
       return path && (path.endsWith('.mp4') || path.endsWith('.webm') || path.endsWith('.ogg'))
+    },
+    openLightbox(index) {
+      this.currentLightboxIndex = index;
+      this.lightboxOpen = true;
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+    },
+    closeLightbox() {
+      this.lightboxOpen = false;
+      document.body.style.overflow = ''; // Restore scrolling
+    },
+    nextItem() {
+      this.currentLightboxIndex = (this.currentLightboxIndex + 1) % this.galleryItems.length;
+    },
+    prevItem() {
+      this.currentLightboxIndex = (this.currentLightboxIndex - 1 + this.galleryItems.length) % this.galleryItems.length;
+    },
+    handleKeyDown(e) {
+      if (!this.lightboxOpen) return;
+      
+      if (e.key === 'Escape') {
+        this.closeLightbox();
+      } else if (e.key === 'ArrowRight') {
+        this.nextItem();
+      } else if (e.key === 'ArrowLeft') {
+        this.prevItem();
+      }
     }
+  },
+  mounted() {
+    // Add keyboard navigation for lightbox
+    window.addEventListener('keydown', this.handleKeyDown);
+  },
+  beforeUnmount() {
+    // Clean up event listener
+    window.removeEventListener('keydown', this.handleKeyDown);
   }
 }
 </script>
@@ -133,7 +172,6 @@ export default {
             <div class="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
               <!-- Left Column - Tags -->
               <div>
-                <h3 class="elite text-blå text-xl md:text-2xl mb-4">Technologies</h3>
                 <div class="flex flex-wrap gap-3">
                   <span 
                     v-for="(tag, index) in tags.split(',')" 
@@ -165,14 +203,13 @@ export default {
             
             <!-- Gallery Section (items in a row) -->
             <div v-if="galleryItems && galleryItems.length > 0" class="col-span-1 md:col-span-2 mt-6">
-            
-              
-              <div class="flex flex-row flex-wrap gap-6">
+              <div class="flex flex-row flex-wrap gap-4">
                 <!-- Videos and images mixed together -->
                 <div 
                   v-for="(item, index) in galleryItems" 
                   :key="`item-${index}`"
-                  class="gallery-item mb-4"
+                  class="gallery-item mb-4 cursor-pointer"
+                  @click="openLightbox(index)"
                 >
                   <!-- Video item -->
                   <video 
@@ -200,6 +237,64 @@ export default {
         </div>
       </div>
     </transition>
+    
+    <!-- Lightbox overlay -->
+    <div v-if="lightboxOpen" class="lightbox fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center" @click="closeLightbox">
+      <!-- Lightbox content -->
+      <div class="lightbox-content p-4 max-w-screen-lg max-h-screen overflow-auto" @click.stop>
+        <!-- Video -->
+        <video 
+          v-if="isVideo(currentLightboxItem)" 
+          controls 
+          autoplay
+          class="max-h-screen max-w-full mx-auto"
+        >
+          <source :src="currentLightboxItem" type="video/mp4">
+        </video>
+        
+        <!-- Image -->
+        <img 
+          v-else 
+          :src="currentLightboxItem" 
+          :alt="`${title} enlarged view`"
+          class="max-h-screen max-w-full mx-auto object-contain"
+        >
+      </div>
+      
+      <!-- Navigation controls -->
+      <button 
+        v-if="galleryItems.length > 1" 
+        @click.stop="prevItem" 
+        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition"
+        aria-label="Previous item"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      
+      <button 
+        v-if="galleryItems.length > 1" 
+        @click.stop="nextItem" 
+        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition"
+        aria-label="Next item"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+      
+      <!-- Close button -->
+      <button 
+        @click.stop="closeLightbox" 
+        class="absolute top-4 right-4 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition"
+        aria-label="Close lightbox"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -219,15 +314,55 @@ export default {
 
 .gallery-item {
   flex: 0 0 auto;
-  width: calc(25% - 1.125rem);  /* 4 items per row with larger gap considered */
-  padding: 8px;
-  background-color: rgba(250, 250, 250, 0.5);
+  width: calc(14% - 1.125rem);  /* Smaller items per row with reduced padding */
+  padding: 2px;
   border-radius: 4px;
   transition: transform 0.2s ease;
+  position: relative;
 }
 
 .gallery-item:hover {
   transform: translateY(-3px);
+}
+
+.gallery-item::after {
+  content: '🔍';
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* Lightbox animations */
+.lightbox {
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-content {
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 /* Responsive adjustments */
