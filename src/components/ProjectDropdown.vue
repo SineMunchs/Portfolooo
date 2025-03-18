@@ -44,7 +44,17 @@ export default {
       isOpen: false,
       lightboxOpen: false,
       currentLightboxIndex: 0,
-      clickedItemIndex: null
+      clickedItemIndex: null,
+      highlightedGalleryItems: [] // Track highlighted items with a separate array
+    }
+  },
+  watch: {
+    // Reset highlighted items when dropdown closes
+    isOpen(newVal) {
+      if (!newVal) {
+        // Don't reset highlighted items when dropdown closes
+        // We want to keep the highlight
+      }
     }
   },
   computed: {
@@ -57,6 +67,26 @@ export default {
     },
     currentLightboxItem() {
       return this.galleryItems[this.currentLightboxIndex];
+    },
+    // Add a computed property for dropdown header styling
+    dropdownHeaderClass() {
+      return {
+        'border-b': true,
+        'border-blå': true,
+        'bg-blå': this.isOpen,
+        'py-2': true,
+        'grid': true,
+        'grid-cols-2': true,
+        'md:grid-cols-4': true,
+        'cursor-pointer': true,
+        'items-center': true,
+        'transition-colors': true,
+        'duration-300': true
+      }
+    },
+    // Add a computed property for text color
+    textColorClass() {
+      return this.isOpen ? 'text-white' : 'text-blå'
     }
   },
   methods: {
@@ -68,7 +98,11 @@ export default {
     },
     openLightbox(index) {
       this.currentLightboxIndex = index;
-      this.clickedItemIndex = index; // Set the clicked item index
+      // Add this index to highlighted items if not already there
+      if (!this.highlightedGalleryItems.includes(index)) {
+        this.highlightedGalleryItems.push(index);
+      }
+      this.clickedItemIndex = index; // Also keep this for backward compatibility
       this.lightboxOpen = true;
       document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
     },
@@ -94,8 +128,9 @@ export default {
         this.prevItem();
       }
     },
-    isItemClicked(index) {
-      return this.clickedItemIndex === index;
+    isItemHighlighted(index) {
+      // Item is highlighted if it's in our highlighted items array
+      return this.highlightedGalleryItems.includes(index);
     }
   },
   mounted() {
@@ -112,15 +147,15 @@ export default {
 <template>
   <div>
     <!-- Project Header Row - Always visible -->
-    <div class="border-b border-blå py-2 grid grid-cols-2 md:grid-cols-4 cursor-pointer items-center" @click="toggleDropdown">
+    <div :class="dropdownHeaderClass" @click="toggleDropdown">
       <!-- Date Column - Hidden on mobile -->
-      <div class="hidden md:flex md:items-center elite text-blå pl-2">{{ date }}</div>
+      <div class="hidden md:flex md:items-center elite" :class="textColorClass">{{ date }}</div>
       
       <!-- Category Column - Hidden on mobile -->
-      <div class="hidden md:flex md:items-center elite text-blå">{{ category }}</div>
+      <div class="hidden md:flex md:items-center elite" :class="textColorClass">{{ category }}</div>
       
       <!-- Title Column - Takes full width on mobile -->
-      <div class="flex items-center elite text-blå col-span-1 md:col-span-1">{{ title }}</div>
+      <div class="flex items-center elite col-span-1 md:col-span-1" :class="textColorClass">{{ title }}</div>
       
       <!-- Thumbnail Column (right) -->
       <div class="flex items-center justify-end">
@@ -215,7 +250,7 @@ export default {
                   v-for="(item, index) in galleryItems" 
                   :key="`item-${index}`"
                   class="gallery-item mb-4 cursor-pointer"
-                  :class="{ 'clicked-item': isItemClicked(index) }"
+                  :class="{ 'highlighted-item': isItemHighlighted(index) }"
                   @click="openLightbox(index)"
                 >
                   <!-- Video item -->
@@ -333,10 +368,12 @@ export default {
   transform: translateY(-3px);
 }
 
-/* Blue border for clicked items */
-.clicked-item {
+/* Blue border for highlighted items - changed from .clicked-item */
+.highlighted-item {
   border: 2px solid #1E90FF !important; /* Use bright blue */
   box-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+  position: relative;
+  z-index: 1;
 }
 
 .gallery-item::after {

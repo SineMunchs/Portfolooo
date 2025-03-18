@@ -33,14 +33,12 @@ export default {
           
         ],
         PoseClassification: [
-          "/images/neoApp.png",
-          "/video/intelligentesign.mp4",
+          "/video/Intelligentdesign.mp4",
           "/images/neoStretch.png",
           "/images/neoCardcomp.png",
           "/images/neoFigma.png",
           "/images/neo.png",
           "/video/Interactive.mp4",
-          
         ],
 
         jewellery: [
