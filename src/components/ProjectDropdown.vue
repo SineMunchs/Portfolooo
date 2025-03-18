@@ -43,18 +43,7 @@ export default {
     return {
       isOpen: false,
       lightboxOpen: false,
-      currentLightboxIndex: 0,
-      clickedItemIndex: null,
-      highlightedGalleryItems: [] // Track highlighted items with a separate array
-    }
-  },
-  watch: {
-    // Reset highlighted items when dropdown closes
-    isOpen(newVal) {
-      if (!newVal) {
-        // Don't reset highlighted items when dropdown closes
-        // We want to keep the highlight
-      }
+      currentLightboxIndex: 0
     }
   },
   computed: {
@@ -98,11 +87,6 @@ export default {
     },
     openLightbox(index) {
       this.currentLightboxIndex = index;
-      // Add this index to highlighted items if not already there
-      if (!this.highlightedGalleryItems.includes(index)) {
-        this.highlightedGalleryItems.push(index);
-      }
-      this.clickedItemIndex = index; // Also keep this for backward compatibility
       this.lightboxOpen = true;
       document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
     },
@@ -128,10 +112,7 @@ export default {
         this.prevItem();
       }
     },
-    isItemHighlighted(index) {
-      // Item is highlighted if it's in our highlighted items array
-      return this.highlightedGalleryItems.includes(index);
-    }
+    // Removed highlight checking method as it's no longer needed
   },
   mounted() {
     // Add keyboard navigation for lightbox
@@ -250,7 +231,6 @@ export default {
                   v-for="(item, index) in galleryItems" 
                   :key="`item-${index}`"
                   class="gallery-item mb-4 cursor-pointer"
-                  :class="{ 'highlighted-item': isItemHighlighted(index) }"
                   @click="openLightbox(index)"
                 >
                   <!-- Video item -->
@@ -368,13 +348,7 @@ export default {
   transform: translateY(-3px);
 }
 
-/* Blue border for highlighted items - changed from .clicked-item */
-.highlighted-item {
-  border: 2px solid #1E90FF !important; /* Use bright blue */
-  box-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
-  position: relative;
-  z-index: 1;
-}
+/* Removed blue border styling for highlighted items */
 
 .gallery-item::after {
   content: '🔍';

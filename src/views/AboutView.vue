@@ -51,8 +51,8 @@ export default {
 
 <template>
   <div className="mt-20 ml-1 flex items-center">
-      <h1 className="text-blå text-7xl md:text-8xl lg:text-9xl tracking-widest">
-        SINE MUNCH
+      <h1 className="text-blå text-6xl md:text-7xl lg:text-8xl tracking-widest">
+        Sine Munch
       </h1>
       <img
         src="../../images/Smil.svg"
@@ -62,11 +62,11 @@ export default {
     </div>
     
     <div class=" t-6 md:mt-11 p-2 max-w-4xl" >
-    <p className="text-2xl md:text-4xl tracking-widest hyphens-manual text-blå">My educational path took off at KEA in the field of design and entrepreneurship, and now I’m exploring the digital world at <b>DMJX</b>, diving into <b>Coded Design</b> since 2023. My passion lies in crafting designs that are as functional as they are appealing, bridging the gap between aesthetics and utility. 
+    <p className="text-2xl md:text-4xl tracking-widest text-blå">My educational path took off at KEA in the field of design and entrepreneurship, and now I’m exploring the digital world at <b>DMJX</b>, diving into <b>Coded Design</b> since 2023. My passion lies in crafting designs that are as functional as they are appealing, bridging the gap between aesthetics and utility. 
     </p>
     </div>
 
-    <div class="mt-12 p-2 space-y-2 md:space-y-4 md:absolute md:bottom-0 md:right-0">
+    <div class="p-2 space-y-2 md:space-y-4 md:absolute md:bottom-22 md:right-0">
 
    <!-- LINKEDIN -->
       <a href="https://www.linkedin.com/in/sine-munch-b992461b8/"
