@@ -14,6 +14,7 @@ export default {
       // Project descriptions (keeping original text)
       projectDetails: {
         interactiveDesign: "For this semester project, I tackled rising neck pain among youth by creating NEO—a gamified solution where users draw with their nose to improve mobility. My research informed a design balancing medical credibility with playful engagement through achievements, social challenges, and a symptom-tracking slider. The minimalist blue interface with a custom mascot maintains connection to Danish Physiotherapists while appealing to teens. This project showcased my ability to transform health education into interactive experiences that feel engaging rather than clinical.",
+        PoseClassification: "For this semester project, I tackled rising neck pain among youth by creating NEO—a gamified solution where users draw with their nose to improve mobility. My research informed a design balancing medical credibility with playful engagement through achievements, social challenges, and a symptom-tracking slider.",
         jewellery: "I created a project integrating various disciplines from my studies. I applied form principles for balanced compositions and color theory for a harmonious, emotionally responsive palette. Typography selection balanced readability and personality through testing multiple font families.My drawing combined digital and traditional techniques in Procreate and Illustrator, supported by brainstorming and mood boards. For 3D elements, I used Blender to model and texture objects with attention to lighting. Programming with JavaScript and CSS brought interactive elements to life while maintaining visual integrity.",
         creativeCoding: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
         visualLanguage: "An exploration of form, color theory, typography and drawing techniques.",
@@ -31,6 +32,17 @@ export default {
           "/video/Interactive.mp4",
           
         ],
+        PoseClassification: [
+          "/images/neoApp.png",
+          "/video/intelligentesign.mp4",
+          "/images/neoStretch.png",
+          "/images/neoCardcomp.png",
+          "/images/neoFigma.png",
+          "/images/neo.png",
+          "/video/Interactive.mp4",
+          
+        ],
+
         jewellery: [
           "/video/hands.mp4",
           "/video/generator.mp4",
@@ -79,6 +91,16 @@ export default {
     thumbnail="/images/neoThumbnail.png"
     :description="projectDetails.interactiveDesign"
     :galleryItems="projectGalleries.interactiveDesign"
+  />
+
+  <ProjectDropdown
+    title="Intelligent Design" 
+    date="21/11/2024"
+    category="Identity and visualization"
+    tags="UI design, UX, visual identity, prototyping, research, figma, Adobe, interactive design"
+    thumbnail="/images/neoThumbnail.png"
+    :description="projectDetails.poseClassification"
+    :galleryItems="projectGalleries.poseClassification"
   />
   
   <!-- Second Project - Jewellery Generator -->

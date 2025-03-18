@@ -43,7 +43,8 @@ export default {
     return {
       isOpen: false,
       lightboxOpen: false,
-      currentLightboxIndex: 0
+      currentLightboxIndex: 0,
+      clickedItemIndex: null
     }
   },
   computed: {
@@ -67,12 +68,14 @@ export default {
     },
     openLightbox(index) {
       this.currentLightboxIndex = index;
+      this.clickedItemIndex = index; // Set the clicked item index
       this.lightboxOpen = true;
       document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
     },
     closeLightbox() {
       this.lightboxOpen = false;
       document.body.style.overflow = ''; // Restore scrolling
+      // Keep the clicked item highlighted even after closing lightbox
     },
     nextItem() {
       this.currentLightboxIndex = (this.currentLightboxIndex + 1) % this.galleryItems.length;
@@ -90,6 +93,9 @@ export default {
       } else if (e.key === 'ArrowLeft') {
         this.prevItem();
       }
+    },
+    isItemClicked(index) {
+      return this.clickedItemIndex === index;
     }
   },
   mounted() {
@@ -209,6 +215,7 @@ export default {
                   v-for="(item, index) in galleryItems" 
                   :key="`item-${index}`"
                   class="gallery-item mb-4 cursor-pointer"
+                  :class="{ 'clicked-item': isItemClicked(index) }"
                   @click="openLightbox(index)"
                 >
                   <!-- Video item -->
@@ -317,12 +324,19 @@ export default {
   width: calc(14% - 1.125rem);  /* Smaller items per row with reduced padding */
   padding: 2px;
   border-radius: 4px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, border 0.2s ease;
   position: relative;
+  border: 2px solid transparent;
 }
 
 .gallery-item:hover {
   transform: translateY(-3px);
+}
+
+/* Blue border for clicked items */
+.clicked-item {
+  border: 2px solid #1E90FF !important; /* Use bright blue */
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
 }
 
 .gallery-item::after {
