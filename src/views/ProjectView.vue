@@ -14,7 +14,7 @@ export default {
       // Project descriptions (keeping original text)
       projectDetails: {
         interactiveDesign: "For this semester project, I tackled rising neck pain among youth by creating NEO—a gamified solution where users draw with their nose to improve mobility. My research informed a design balancing medical credibility with playful engagement through achievements, social challenges, and a symptom-tracking slider. The minimalist blue interface with a custom mascot maintains connection to Danish Physiotherapists while appealing to teens. This project showcased my ability to transform health education into interactive experiences that feel engaging rather than clinical.",
-        PoseClassification: "Artificial Intelligence and How You Can Use It to Expand Your Creative Use of Code. A three-module course exploring AI for creative coding. Module 1 introduces machine learning with Teachable Machine for classifying images, sounds, and poses. Module 2 covers generative AI technologies for creating text, images, and sounds. Module 3 allows students to develop self-directed projects applying these tools to extend creative capabilities.",
+        PoseClassification: "Artificial Intelligence and How You Can Use It to Expand Your Creative Use of Code. A three-module course exploring AI for creative coding. Module 1 introduces machine learning with Teachable Machine for classifying images, sounds, and poses. Module 2 covers generative AI technologies for creating text, images, and sounds. Module 3 allows students to develop self-directed projects applying these tools to extend creative capabilities.Read more about the course through the klink underneath.",
         jewellery: "I created a project integrating various disciplines from my studies. I applied form principles for balanced compositions and color theory for a harmonious, emotionally responsive palette. Typography selection balanced readability and personality through testing multiple font families.My drawing combined digital and traditional techniques in Procreate and Illustrator, supported by brainstorming and mood boards. For 3D elements, I used Blender to model and texture objects with attention to lighting. Programming with JavaScript and CSS brought interactive elements to life while maintaining visual integrity.",
         creativeCoding: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
         visualLanguage: "An exploration of form, color theory, typography and drawing techniques.",
@@ -26,9 +26,9 @@ export default {
           "/images/neoApp.png",
           "/video/neo.mp4",
           "/images/neoStretch.png",
+          "/images/neoImplementering.png",
           "/images/neoCardcomp.png",
           "/images/neoFigma.png",
-          "/images/neo.png",
           "/video/Interactive.mp4",
           
         ],
@@ -37,17 +37,14 @@ export default {
           "/video/IDHjerte.mp4",
           "/video/IDTrial.mp4",
           "/video/IDhjerte2.mp4",
-
-
     
         ],
-
+    
         jewellery: [
           "/video/hands.mp4",
           "/video/generator.mp4",
           "/images/hoshoIllustrationer.png", 
           "/images/hoshoIdentitet.jpg"
-
         ],
         creativeCoding: [
         "/video/ccP5.mp4",  
@@ -97,12 +94,13 @@ export default {
   <!-- First Project - Interactive Design -->
   <ProjectDropdown
     title="Interactive Design" 
-    date="21/06/2024"
+    date="24/01/2025"
     category="Identity and visualization"
     tags="UI design, UX, visual identity, prototyping, research, figma, Adobe, interactive design"
     thumbnail="/images/neoThumbnail.png"
     :description="projectDetails.interactiveDesign"
     :galleryItems="projectGalleries.interactiveDesign"
+    projectLink="https://neodfys.netlify.app/"
   />
 
   <ProjectDropdown
@@ -113,12 +111,16 @@ export default {
     thumbnail="/images/IDthumbnail.png"
     :description="projectDetails.PoseClassification"
     :galleryItems="projectGalleries.PoseClassification"
+
+    projectLink ="https://www.superultra.dk/posts/2024/12/05/teaching-genai"
   />
+
+ 
   
   <!-- Second Project - Jewellery Generator -->
   <ProjectDropdown
     title="Jewellery Generator"
-    date="15/04/2024"
+    date="03/01/2024"
     category="Branding"
     tags="Form, Color Theory Typography, Drawing, Creativity, 3D Modelling, Programming, Processing, Blender, JavaScript, CSS"
     thumbnail="/images/logo.png"
@@ -129,7 +131,7 @@ export default {
   <!-- Third Project - Creative Coding -->
   <ProjectDropdown
     title="Creative Coding"
-    date="17/02/2025"
+    date="17/11/2023"
     category="Generative Art"
     tags="Drawing with Processing, p5.js"
     thumbnail="/images/creativeThumbnail.png"
@@ -137,7 +139,7 @@ export default {
     :galleryItems="projectGalleries.creativeCoding"
   />
   
-  <!-- Fourth Project - Visual Language -->
+  <!-- Fourth Project - Visual Language 
   <ProjectDropdown
     title="Visual Language"
     date="10/09/2023"
@@ -146,7 +148,7 @@ export default {
     thumbnail="/images/face.svg"
     :description="projectDetails.visualLanguage"
     :galleryItems="projectGalleries.visualLanguage"
-  />
+  />-->
   
   <!-- Fifth Project - Color Observation -->
   <ProjectDropdown

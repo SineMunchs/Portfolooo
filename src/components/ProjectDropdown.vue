@@ -37,6 +37,10 @@ export default {
     galleryItems: {
       type: Array,
       default: () => []
+    },
+    projectLink: {
+      type: String,
+      default: null
     }
   },
   data() {
@@ -151,7 +155,7 @@ export default {
     <!-- Dropdown Content - Only visible when expanded -->
     <transition name="slide">
       <div v-if="isOpen" class="bg-white">
-        <div class="p-6 md:p-8">
+        <div class="p-7 md:p-8">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Project Header -->
             <div class="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 mb-8">
@@ -188,6 +192,17 @@ export default {
             <!-- Project Description -->
             <div class="col-span-1 md:col-span-2">
               <p class="mb-8 text-base leading-relaxed">{{ description }}</p>
+              
+              <!-- Project Link Button -->
+              <a 
+                v-if="projectLink" 
+                :href="projectLink" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-block px-6 py-3 mb-8 bg-blå text-white elite rounded hover:bg-opacity-90 transition-colors"
+              >
+                Visit Site
+              </a>
             </div>
             
             <!-- Project Content -->
