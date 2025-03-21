@@ -93,17 +93,38 @@ export default {
       this.currentLightboxIndex = index;
       this.lightboxOpen = true;
       document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+      
+      // Add a global click handler to ensure event capture works properly
+      this.$nextTick(() => {
+        document.addEventListener('keydown', this.handleKeyDown);
+      });
     },
     closeLightbox() {
       this.lightboxOpen = false;
       document.body.style.overflow = ''; // Restore scrolling
-      // Keep the clicked item highlighted even after closing lightbox
+      
+      // Remove the global handlers when closing
+      document.removeEventListener('keydown', this.handleKeyDown);
     },
-    nextItem() {
-      this.currentLightboxIndex = (this.currentLightboxIndex + 1) % this.galleryItems.length;
+    nextItem(e) {
+      if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      // Ensure we're calculating based on array length
+      if (this.galleryItems.length > 1) {
+        this.currentLightboxIndex = (this.currentLightboxIndex + 1) % this.galleryItems.length;
+      }
     },
-    prevItem() {
-      this.currentLightboxIndex = (this.currentLightboxIndex - 1 + this.galleryItems.length) % this.galleryItems.length;
+    prevItem(e) {
+      if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      // Ensure we're calculating based on array length
+      if (this.galleryItems.length > 1) {
+        this.currentLightboxIndex = (this.currentLightboxIndex - 1 + this.galleryItems.length) % this.galleryItems.length;
+      }
     },
     handleKeyDown(e) {
       if (!this.lightboxOpen) return;
@@ -115,16 +136,23 @@ export default {
       } else if (e.key === 'ArrowLeft') {
         this.prevItem();
       }
-    },
-    // Removed highlight checking method as it's no longer needed
+      
+      // Prevent default browser behavior for these keys when lightbox is open
+      if (['Escape', 'ArrowRight', 'ArrowLeft', 'Space'].includes(e.key)) {
+        e.preventDefault();
+      }
+    }
   },
   mounted() {
-    // Add keyboard navigation for lightbox
-    window.addEventListener('keydown', this.handleKeyDown);
+    // We'll add keyboard navigation in the openLightbox method
+    // This ensures unique handling per component instance
   },
   beforeUnmount() {
-    // Clean up event listener
-    window.removeEventListener('keydown', this.handleKeyDown);
+    // Make sure to clean up listeners if the component is destroyed while lightbox is open
+    if (this.lightboxOpen) {
+      document.removeEventListener('keydown', this.handleKeyDown);
+      document.body.style.overflow = '';
+    }
   }
 }
 </script>
@@ -275,63 +303,73 @@ export default {
       </div>
     </transition>
     
-    <!-- Lightbox overlay -->
-    <div v-if="lightboxOpen" class="lightbox fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center" @click="closeLightbox">
-      <!-- Lightbox content -->
-      <div class="lightbox-content p-4 max-w-screen-lg max-h-screen overflow-auto" @click.stop>
-        <!-- Video -->
-        <video 
-          v-if="isVideo(currentLightboxItem)" 
-          controls 
-          autoplay
-          class="max-h-screen max-w-full mx-auto"
-        >
-          <source :src="currentLightboxItem" type="video/mp4">
-        </video>
-        
-        <!-- Image -->
-        <img 
-          v-else 
-          :src="currentLightboxItem" 
-          :alt="`${title} enlarged view`"
-          class="max-h-screen max-w-full mx-auto object-contain"
-        >
+    <!-- Lightbox overlay - FIXED VERSION -->
+    <teleport to="body">
+      <div v-if="lightboxOpen" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
+        <!-- Lightbox content container -->
+        <div class="relative max-w-4xl w-full h-full flex items-center justify-center p-8">
+          <!-- Close button - moved outside content area -->
+          <button 
+            @click.stop="closeLightbox" 
+            class="absolute top-4 right-4 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition z-20"
+            aria-label="Close lightbox"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <!-- Content area - doesn't stop event propagation -->
+          <div class="max-h-full max-w-full overflow-auto">
+            <!-- Video -->
+            <video 
+              v-if="isVideo(currentLightboxItem)" 
+              controls 
+              autoplay
+              class="max-h-screen max-w-full mx-auto"
+              @click.stop
+            >
+              <source :src="currentLightboxItem" type="video/mp4">
+            </video>
+            
+            <!-- Image -->
+            <img 
+              v-else 
+              :src="currentLightboxItem" 
+              :alt="`${title} enlarged view`"
+              class="max-h-screen max-w-full mx-auto object-contain"
+              @click.stop
+            >
+          </div>
+          
+          <!-- Navigation controls - fixed positioning and separate from content -->
+          <button 
+            v-if="galleryItems.length > 1" 
+            @click.stop="prevItem" 
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition z-20"
+            aria-label="Previous item"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button 
+            v-if="galleryItems.length > 1" 
+            @click.stop="nextItem" 
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition z-20"
+            aria-label="Next item"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          
+          <!-- Background overlay that closes the lightbox when clicked -->
+          <div class="absolute inset-0 z-10" @click="closeLightbox"></div>
+        </div>
       </div>
-      
-      <!-- Navigation controls -->
-      <button 
-        v-if="galleryItems.length > 1" 
-        @click.stop="prevItem" 
-        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition"
-        aria-label="Previous item"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      
-      <button 
-        v-if="galleryItems.length > 1" 
-        @click.stop="nextItem" 
-        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition"
-        aria-label="Next item"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-      
-      <!-- Close button -->
-      <button 
-        @click.stop="closeLightbox" 
-        class="absolute top-4 right-4 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition"
-        aria-label="Close lightbox"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
+    </teleport>
   </div>
 </template>
 
@@ -363,8 +401,6 @@ export default {
   transform: translateY(-3px);
 }
 
-/* Removed blue border styling for highlighted items */
-
 .gallery-item::after {
   content: '🔍';
   position: absolute;
@@ -387,14 +423,6 @@ export default {
 }
 
 /* Lightbox animations */
-.lightbox {
-  animation: fadeIn 0.3s ease;
-}
-
-.lightbox-content {
-  animation: zoomIn 0.3s ease;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
