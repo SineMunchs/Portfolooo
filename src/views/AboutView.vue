@@ -4,7 +4,7 @@
     <div class="content-container">
       <div className="mt-20 ml-1 flex items-center">
         <h1 className="text-blå text-6xl md:text-7xl lg:text-8xl tracking-widest">
-          About - background
+          About - Contact
         </h1>
         <img
           src="../../images/Smil.svg"

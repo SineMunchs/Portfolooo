@@ -41,13 +41,20 @@ export default {
     projectLink: {
       type: String,
       default: null
+    },
+    // New prop for sub-projects
+    subProjects: {
+      type: Array,
+      default: () => []
+      // Each sub-project should have: title, description, galleryItems
     }
   },
   data() {
     return {
       isOpen: false,
       lightboxOpen: false,
-      currentLightboxIndex: 0
+      currentLightboxIndex: 0,
+      currentGallerySource: null // 'main' or index of subProject
     }
   },
   computed: {
@@ -59,7 +66,16 @@ export default {
       return this.galleryItems.filter(item => !this.isVideo(item));
     },
     currentLightboxItem() {
-      return this.galleryItems[this.currentLightboxIndex];
+      if (this.currentGallerySource === 'main') {
+        return this.galleryItems[this.currentLightboxIndex];
+      } else if (typeof this.currentGallerySource === 'number' && this.subProjects[this.currentGallerySource]) {
+        return this.subProjects[this.currentGallerySource].galleryItems[this.currentLightboxIndex];
+      }
+      return null;
+    },
+    // Has sub-projects
+    hasSubProjects() {
+      return this.subProjects && this.subProjects.length > 0;
     },
     // Add a computed property for dropdown header styling
     dropdownHeaderClass() {
@@ -89,8 +105,9 @@ export default {
     isVideo(path) {
       return path && (path.endsWith('.mp4') || path.endsWith('.webm') || path.endsWith('.ogg'))
     },
-    openLightbox(index) {
+    openLightbox(index, source = 'main') {
       this.currentLightboxIndex = index;
+      this.currentGallerySource = source;
       this.lightboxOpen = true;
       document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
       
@@ -111,9 +128,13 @@ export default {
         e.stopPropagation();
         e.preventDefault();
       }
+      
+      // Get the current gallery items based on source
+      const currentGallery = this.getCurrentGalleryItems();
+      
       // Ensure we're calculating based on array length
-      if (this.galleryItems.length > 1) {
-        this.currentLightboxIndex = (this.currentLightboxIndex + 1) % this.galleryItems.length;
+      if (currentGallery.length > 1) {
+        this.currentLightboxIndex = (this.currentLightboxIndex + 1) % currentGallery.length;
       }
     },
     prevItem(e) {
@@ -121,9 +142,13 @@ export default {
         e.stopPropagation();
         e.preventDefault();
       }
+      
+      // Get the current gallery items based on source
+      const currentGallery = this.getCurrentGalleryItems();
+      
       // Ensure we're calculating based on array length
-      if (this.galleryItems.length > 1) {
-        this.currentLightboxIndex = (this.currentLightboxIndex - 1 + this.galleryItems.length) % this.galleryItems.length;
+      if (currentGallery.length > 1) {
+        this.currentLightboxIndex = (this.currentLightboxIndex - 1 + currentGallery.length) % currentGallery.length;
       }
     },
     handleKeyDown(e) {
@@ -141,6 +166,14 @@ export default {
       if (['Escape', 'ArrowRight', 'ArrowLeft', 'Space'].includes(e.key)) {
         e.preventDefault();
       }
+    },
+    getCurrentGalleryItems() {
+      if (this.currentGallerySource === 'main') {
+        return this.galleryItems;
+      } else if (typeof this.currentGallerySource === 'number' && this.subProjects[this.currentGallerySource]) {
+        return this.subProjects[this.currentGallerySource].galleryItems;
+      }
+      return [];
     }
   },
   mounted() {
@@ -266,15 +299,15 @@ export default {
               </div>
             </div>
             
-            <!-- Gallery Section (items in a row) -->
-            <div v-if="galleryItems && galleryItems.length > 0" class="col-span-1 md:col-span-2 mt-6">
+            <!-- Main Gallery Section (if not using sub-projects) -->
+            <div v-if="!hasSubProjects && galleryItems && galleryItems.length > 0" class="col-span-1 md:col-span-2 mt-6">
               <div class="flex flex-row flex-wrap gap-4">
                 <!-- Videos and images mixed together -->
                 <div 
                   v-for="(item, index) in galleryItems" 
                   :key="`item-${index}`"
                   class="gallery-item mb-4 cursor-pointer"
-                  @click="openLightbox(index)"
+                  @click="openLightbox(index, 'main')"
                 >
                   <!-- Video item -->
                   <video 
@@ -296,6 +329,53 @@ export default {
                     class="object-contain w-auto h-auto max-h-64"
                   >
                 </div>
+              </div>
+            </div>
+            
+            <!-- SUB-PROJECTS SECTION -->
+            <div v-if="hasSubProjects" class="col-span-1 md:col-span-2 mt-10">
+              <div v-for="(subProject, subIndex) in subProjects" :key="`sub-${subIndex}`" class="mb-16">
+                <!-- Sub-project title -->
+                <h3 class="elite text-blå text-3xl md:text-4xl tracking-wide mb-6">{{ subProject.title }}</h3>
+                
+                <!-- Sub-project description -->
+                <p class="mb-8 text-base leading-relaxed">{{ subProject.description }}</p>
+                
+                <!-- Sub-project gallery -->
+                <div v-if="subProject.galleryItems && subProject.galleryItems.length > 0" class="mt-6">
+                  <div class="flex flex-row flex-wrap gap-4">
+                    <!-- Sub-project gallery items -->
+                    <div 
+                      v-for="(item, itemIndex) in subProject.galleryItems" 
+                      :key="`sub-${subIndex}-item-${itemIndex}`"
+                      class="gallery-item mb-4 cursor-pointer"
+                      @click="openLightbox(itemIndex, subIndex)"
+                    >
+                      <!-- Video item -->
+                      <video 
+                        v-if="isVideo(item)"
+                        class="object-contain w-auto h-auto max-h-64" 
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                      >
+                        <source :src="item" type="video/mp4">
+                      </video>
+                      
+                      <!-- Image item -->
+                      <img 
+                        v-else
+                        :src="item" 
+                        :alt="`${subProject.title} item ${itemIndex+1}`" 
+                        class="object-contain w-auto h-auto max-h-64"
+                      >
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Divider between sub-projects (except for the last one) -->
+                <div v-if="subIndex < subProjects.length - 1" class="border-t border-gray-200 my-12"></div>
               </div>
             </div>
           </div>
@@ -323,7 +403,7 @@ export default {
           <div class="max-h-full max-w-full overflow-auto">
             <!-- Video -->
             <video 
-              v-if="isVideo(currentLightboxItem)" 
+              v-if="currentLightboxItem && isVideo(currentLightboxItem)" 
               controls 
               autoplay
               class="max-h-screen max-w-full mx-auto"
@@ -334,7 +414,7 @@ export default {
             
             <!-- Image -->
             <img 
-              v-else 
+              v-else-if="currentLightboxItem"
               :src="currentLightboxItem" 
               :alt="`${title} enlarged view`"
               class="max-h-screen max-w-full mx-auto object-contain"
@@ -344,7 +424,7 @@ export default {
           
           <!-- Navigation controls - fixed positioning and separate from content -->
           <button 
-            v-if="galleryItems.length > 1" 
+            v-if="getCurrentGalleryItems().length > 1" 
             @click.stop="prevItem" 
             class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition z-20"
             aria-label="Previous item"
@@ -355,7 +435,7 @@ export default {
           </button>
           
           <button 
-            v-if="galleryItems.length > 1" 
+            v-if="getCurrentGalleryItems().length > 1" 
             @click.stop="nextItem" 
             class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition z-20"
             aria-label="Next item"
