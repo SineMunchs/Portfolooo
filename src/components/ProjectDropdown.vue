@@ -1,7 +1,9 @@
-<!-- ProjectDropdown.vue -->
+// Modified version of ProjectDropdown.vue with image fixes for mobile
+
 <script>
 export default {
   props: {
+    // Keep all your existing props
     title: {
       type: String,
       required: true
@@ -24,7 +26,7 @@ export default {
     },
     description: {
       type: String,
-      default: 'For this semester project, I tackled rising neck pain among youth by creating NEO—a gamified solution where users draw with their nose to improve mobility. My research informed a design balancing medical credibility with playful engagement through achievements, social challenges, and a symptom-tracking slider. The minimalist blue interface with a custom mascot maintains connection to Danish Physiotherapists while appealing to teens. This project showcased my ability to transform health education into interactive experiences that feel engaging rather than clinical.'
+      default: 'Project description'
     },
     date: {
       type: String,
@@ -42,11 +44,9 @@ export default {
       type: String,
       default: null
     },
-    // New prop for sub-projects
     subProjects: {
       type: Array,
       default: () => []
-      // Each sub-project should have: title, description, galleryItems
     }
   },
   data() {
@@ -54,11 +54,14 @@ export default {
       isOpen: false,
       lightboxOpen: false,
       currentLightboxIndex: 0,
-      currentGallerySource: null // 'main' or index of subProject
+      currentGallerySource: null,
+      // New: Add state to track loading errors
+      imageErrors: {},
+      missingImageUrl: 'data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Crect fill="%23f0f0f0" width="100" height="100"/%3E%3Cpath fill="%23cccccc" d="M36 29h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zM36 37h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zM36 45h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zM36 53h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z"/%3E%3Ctext text-anchor="middle" x="50" y="65" font-family="sans-serif" font-size="10" fill="%23333333"%3EImage Missing%3C/text%3E%3C/svg%3E'
     }
   },
   computed: {
-    // Separate videos and images from gallery items
+    // Keep all your existing computed properties
     videoItems() {
       return this.galleryItems.filter(item => this.isVideo(item));
     },
@@ -73,11 +76,9 @@ export default {
       }
       return null;
     },
-    // Has sub-projects
     hasSubProjects() {
       return this.subProjects && this.subProjects.length > 0;
     },
-    // Add a computed property for dropdown header styling
     dropdownHeaderClass() {
       return {
         'border-b': true,
@@ -93,12 +94,12 @@ export default {
         'duration-300': true
       }
     },
-    // Add a computed property for text color
     textColorClass() {
       return this.isOpen ? 'text-white' : 'text-blå'
     }
   },
   methods: {
+    // Keep existing methods
     toggleDropdown() {
       this.isOpen = !this.isOpen
     },
@@ -109,18 +110,16 @@ export default {
       this.currentLightboxIndex = index;
       this.currentGallerySource = source;
       this.lightboxOpen = true;
-      document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+      document.body.style.overflow = 'hidden';
       
-      // Add a global click handler to ensure event capture works properly
       this.$nextTick(() => {
         document.addEventListener('keydown', this.handleKeyDown);
       });
     },
     closeLightbox() {
       this.lightboxOpen = false;
-      document.body.style.overflow = ''; // Restore scrolling
+      document.body.style.overflow = '';
       
-      // Remove the global handlers when closing
       document.removeEventListener('keydown', this.handleKeyDown);
     },
     nextItem(e) {
@@ -129,10 +128,8 @@ export default {
         e.preventDefault();
       }
       
-      // Get the current gallery items based on source
       const currentGallery = this.getCurrentGalleryItems();
       
-      // Ensure we're calculating based on array length
       if (currentGallery.length > 1) {
         this.currentLightboxIndex = (this.currentLightboxIndex + 1) % currentGallery.length;
       }
@@ -143,10 +140,8 @@ export default {
         e.preventDefault();
       }
       
-      // Get the current gallery items based on source
       const currentGallery = this.getCurrentGalleryItems();
       
-      // Ensure we're calculating based on array length
       if (currentGallery.length > 1) {
         this.currentLightboxIndex = (this.currentLightboxIndex - 1 + currentGallery.length) % currentGallery.length;
       }
@@ -162,7 +157,6 @@ export default {
         this.prevItem();
       }
       
-      // Prevent default browser behavior for these keys when lightbox is open
       if (['Escape', 'ArrowRight', 'ArrowLeft', 'Space'].includes(e.key)) {
         e.preventDefault();
       }
@@ -174,14 +168,53 @@ export default {
         return this.subProjects[this.currentGallerySource].galleryItems;
       }
       return [];
+    },
+    
+    // New methods for handling images
+    handleImageError(path) {
+      console.error(`Failed to load image: ${path}`);
+      this.imageErrors[path] = true;
+      // Force component to update
+      this.$forceUpdate();
+    },
+    
+    getImageSrc(path) {
+      // Return fallback if this image previously failed
+      if (this.imageErrors[path]) {
+        return this.missingImageUrl;
+      }
+      
+      // Try to ensure path starts with leading slash if it's a relative path
+      if (path && !path.startsWith('http') && !path.startsWith('data:') && !path.startsWith('/')) {
+        return '/' + path;
+      }
+      
+      return path;
+    },
+    
+    // Function to preload images, could help with mobile display
+    preloadImage(src) {
+      if (this.isVideo(src) || !src) return;
+      
+      const img = new Image();
+      img.src = this.getImageSrc(src);
+      img.onerror = () => this.handleImageError(src);
     }
   },
   mounted() {
-    // We'll add keyboard navigation in the openLightbox method
-    // This ensures unique handling per component instance
+    // Preload the thumbnail
+    this.preloadImage(this.thumbnail);
+    
+    // Preload gallery images (first 3 only to avoid excessive loading)
+    if (this.galleryItems && this.galleryItems.length > 0) {
+      this.galleryItems.slice(0, 3).forEach(item => {
+        if (!this.isVideo(item)) {
+          this.preloadImage(item);
+        }
+      });
+    }
   },
   beforeUnmount() {
-    // Make sure to clean up listeners if the component is destroyed while lightbox is open
     if (this.lightboxOpen) {
       document.removeEventListener('keydown', this.handleKeyDown);
       document.body.style.overflow = '';
@@ -206,9 +239,11 @@ export default {
       <!-- Thumbnail Column (right) -->
       <div class="flex items-center justify-end">
         <img 
-          :src="thumbnail" 
+          :src="getImageSrc(thumbnail)" 
           :alt="title" 
           class="h-14 w-14 object-contain"
+          loading="lazy"
+          @error="handleImageError(thumbnail)"
         >
       </div>
     </div>
@@ -216,7 +251,7 @@ export default {
     <!-- Dropdown Content - Only visible when expanded -->
     <transition name="slide">
       <div v-if="isOpen" class="bg-white">
-        <div class="p-7 md:p-8">
+        <div class="p-4 md:p-8">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Project Header -->
             <div class="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 mb-8">
@@ -238,14 +273,17 @@ export default {
                   autoplay 
                   loop 
                   muted
+                  playsinline
                 >
                   <source :src="video" type="video/mp4">
                 </video>
                 <img 
                   v-else-if="image" 
-                  :src="image" 
+                  :src="getImageSrc(image)" 
                   :alt="title" 
                   class="object-cover h-32 w-full md:h-40 md:w-60"
+                  loading="lazy"
+                  @error="handleImageError(image)"
                 >
               </div>
             </div>
@@ -287,14 +325,17 @@ export default {
                   v-if="video" 
                   class="w-full object-cover border border-gray-200" 
                   controls
+                  playsinline
                 >
                   <source :src="video" type="video/mp4">
                 </video>
                 <img 
                   v-else-if="image" 
-                  :src="image" 
+                  :src="getImageSrc(image)" 
                   :alt="title" 
                   class="w-full object-cover border border-gray-200"
+                  loading="lazy"
+                  @error="handleImageError(image)"
                 >
               </div>
             </div>
@@ -324,9 +365,11 @@ export default {
                   <!-- Image item -->
                   <img 
                     v-else
-                    :src="item" 
+                    :src="getImageSrc(item)" 
                     :alt="`${title} item ${index+1}`" 
                     class="object-contain w-auto h-auto max-h-64"
+                    loading="lazy"
+                    @error="handleImageError(item)"
                   >
                 </div>
               </div>
@@ -366,9 +409,11 @@ export default {
                       <!-- Image item -->
                       <img 
                         v-else
-                        :src="item" 
+                        :src="getImageSrc(item)" 
                         :alt="`${subProject.title} item ${itemIndex+1}`" 
                         class="object-contain w-auto h-auto max-h-64"
+                        loading="lazy"
+                        @error="handleImageError(item)"
                       >
                     </div>
                   </div>
@@ -383,12 +428,12 @@ export default {
       </div>
     </transition>
     
-    <!-- Lightbox overlay - FIXED VERSION -->
+    <!-- Lightbox overlay -->
     <teleport to="body">
       <div v-if="lightboxOpen" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
         <!-- Lightbox content container -->
-        <div class="relative max-w-4xl w-full h-full flex items-center justify-center p-8">
-          <!-- Close button - moved outside content area -->
+        <div class="relative max-w-4xl w-full h-full flex items-center justify-center p-4 md:p-8">
+          <!-- Close button -->
           <button 
             @click.stop="closeLightbox" 
             class="absolute top-4 right-4 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition z-20"
@@ -399,13 +444,14 @@ export default {
             </svg>
           </button>
 
-          <!-- Content area - doesn't stop event propagation -->
+          <!-- Content area -->
           <div class="max-h-full max-w-full overflow-auto">
             <!-- Video -->
             <video 
               v-if="currentLightboxItem && isVideo(currentLightboxItem)" 
               controls 
               autoplay
+              playsinline
               class="max-h-screen max-w-full mx-auto"
               @click.stop
             >
@@ -415,14 +461,15 @@ export default {
             <!-- Image -->
             <img 
               v-else-if="currentLightboxItem"
-              :src="currentLightboxItem" 
+              :src="getImageSrc(currentLightboxItem)" 
               :alt="`${title} enlarged view`"
               class="max-h-screen max-w-full mx-auto object-contain"
               @click.stop
+              @error="handleImageError(currentLightboxItem)"
             >
           </div>
           
-          <!-- Navigation controls - fixed positioning and separate from content -->
+          <!-- Navigation controls -->
           <button 
             v-if="getCurrentGalleryItems().length > 1" 
             @click.stop="prevItem" 
@@ -445,7 +492,7 @@ export default {
             </svg>
           </button>
           
-          <!-- Background overlay that closes the lightbox when clicked -->
+          <!-- Background overlay -->
           <div class="absolute inset-0 z-10" @click="closeLightbox"></div>
         </div>
       </div>
@@ -467,14 +514,27 @@ export default {
   opacity: 0;
 }
 
+/* Improved mobile-responsive gallery layout */
 .gallery-item {
   flex: 0 0 auto;
-  width: calc(14% - 1.125rem);  /* Smaller items per row with reduced padding */
+  width: calc(50% - 0.5rem); /* 2 items per row on mobile by default */
   padding: 2px;
   border-radius: 4px;
   transition: transform 0.2s ease, border 0.2s ease;
   position: relative;
   border: 2px solid transparent;
+}
+
+@media (min-width: 768px) {
+  .gallery-item {
+    width: calc(33.333% - 0.67rem); /* 3 items per row on medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-item {
+    width: calc(25% - 0.75rem); /* 4 items per row on large screens */
+  }
 }
 
 .gallery-item:hover {
@@ -502,34 +562,15 @@ export default {
   opacity: 1;
 }
 
-/* Lightbox animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes zoomIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .gallery-item {
-    width: calc(33.333% - 1rem);  /* 3 items per row on medium screens */
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery-item {
-    width: calc(50% - 0.75rem);  /* 2 items per row on small screens */
-  }
-}
-
+/* Fix for small mobile screens */
 @media (max-width: 480px) {
   .gallery-item {
-    width: 100%;  /* 1 item per row on very small screens */
-    margin-bottom: 1rem;
+    width: calc(50% - 0.5rem); /* Keep 2 items per row but smaller */
+  }
+  
+  .gallery-item img,
+  .gallery-item video {
+    max-height: 120px; /* Smaller items on very small screens */
   }
 }
 </style>
