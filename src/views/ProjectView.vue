@@ -70,7 +70,7 @@ export default {
           title: "Sea to Shape",
           description: "<< Sea to Shape >> From silvery makrel on ice, I distilled a palette of blues, grays, and cool neutrals. These colors—borrowed from the Bornholm deli, the Mackrel, turned into flowing geometric abstractions. Each curved composition breathes differently despite sharing the same oceanic palette, revealing how arrangement alone shifts visual harmony.",
           galleryItems: [
-            "/public/images/Makrel.jpg",
+            "/images/Makrel.jpg",
             "/images/colorObs.jpg"
           ]
         },
