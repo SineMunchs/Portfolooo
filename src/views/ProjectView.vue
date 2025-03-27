@@ -117,7 +117,7 @@ export default {
       My Projects
     </h1>
     <img
-      src="../../images/Smil.svg"
+      src="/images/Smil.svg"
       alt="Smiley"
       class="h-8 w-8 ml-2 hover:animate-spin self-start mt-4"
     />
