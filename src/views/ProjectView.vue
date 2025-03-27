@@ -14,7 +14,7 @@ export default {
       // Project descriptions (keeping original text)
       projectDetails: {
         interactiveDesign: "For this semester project, I tackled rising neck pain among youth by creating NEO—a gamified solution where users draw with their nose to improve mobility. My research informed a design balancing medical credibility with playful engagement through achievements, social challenges, and a symptom-tracking slider. The minimalist blue interface with a custom mascot maintains connection to Danish Physiotherapists while appealing to teens. This project showcased my ability to transform health education into interactive experiences that feel engaging rather than clinical.",
-       Webshop: "Artificial Intelligence and How You Can Use It to Expand Your Creative Use of Code. A three-module course exploring AI for creative coding. Module 1 introduces machine learning with Teachable Machine for classifying images, sounds, and poses. Module 2 covers generative AI technologies for creating text, images, and sounds. Module 3 allows students to develop self-directed projects applying these tools to extend creative capabilities.Read more about the course through the klink underneath.",
+       Webshop: "For this project, I created an experience site that conveys complex historical narratives through interactive storytelling. I added a humorous twist to the absurd concept of buying Greenland by flipping the narrative—what if Denmark sold Greenland instead? The satirical webshop explores what the country could purchase with the proceeds to improve Danish welfare. The design balances historical commentary with engaging user experience, using primary sources and fictional product listings to create both entertainment and reflection. This project demonstrates my ability to transform serious geopolitical concepts into accessible digital experiences that engage visitors through humor while prompting deeper consideration of national priorities.",
         PoseClassification: "Artificial Intelligence and How You Can Use It to Expand Your Creative Use of Code. A three-module course exploring AI for creative coding. Module 1 introduces machine learning with Teachable Machine for classifying images, sounds, and poses. Module 2 covers generative AI technologies for creating text, images, and sounds. Module 3 allows students to develop self-directed projects applying these tools to extend creative capabilities.Read more about the course through the klink underneath.",
         jewellery: "I created a project integrating various disciplines from my studies. I applied form principles for balanced compositions and color theory for a harmonious, emotionally responsive palette. Typography selection balanced readability and personality through testing multiple font families.My drawing combined digital and traditional techniques in Procreate and Illustrator, supported by brainstorming and mood boards. For 3D elements, I used Blender to model and texture objects with attention to lighting. Programming with JavaScript and CSS brought interactive elements to life while maintaining visual integrity.",
         creativeCoding: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
@@ -26,10 +26,10 @@ export default {
         interactiveDesign: [
           "/images/neoApp.png",
           "/video/neo.mp4",
-          "/images/neoStretch.png",
+          "/images/neostretch.png",
           "/images/neoImplementering.png",
           "/images/neoCardcomp.png",
-          "/images/neoFigma.png",
+          "/images/neofigma.png",
           "/video/Interactive.mp4",
         ],
         Webshop: [
@@ -71,12 +71,12 @@ export default {
           description: "<< Sea to Shape >> From silvery makrel on ice, I distilled a palette of blues, grays, and cool neutrals. These colors—borrowed from the Bornholm deli, the Mackrel, turned into flowing geometric abstractions. Each curved composition breathes differently despite sharing the same oceanic palette, revealing how arrangement alone shifts visual harmony.",
           galleryItems: [
             "/images/Makrel.jpg",
-            "/images/colorObs.jpg"
+            "/images/ColorObs.jpg"
           ]
         },
         {
           title: "Still Life",
-          description: "<< Nature to Palette >> Exploring the colors found in natural environments and translating them into cohesive design palettes. This project demonstrates how observation of natural elements can inform color choices in design work.",
+          description: "",
           galleryItems: [
             "/images/photo1.jpg",
             "/images/photo2.jpg",
@@ -89,10 +89,6 @@ export default {
               "/images/photo8.jpg",
               "/images/photo10.jpg",             
              
-
-
-
-
           ]
         },
      // {
@@ -142,7 +138,7 @@ export default {
     title="Webshop" 
     date="21/01/2025"
     category="Pose Classification"
-    tags="P5.js, interactive design, creative coding, AI, machine learning, generative art"
+    tags="UX/UI design, interactive storytelling, historical narrative, user research, HTML/CSS, JavaScript, content strategy, information architecture, visual design, Figma"
     thumbnail="/images/thumbnailreview.png"
     :description="projectDetails.PoseClassification"
     :galleryItems="projectGalleries.PoseClassification"
