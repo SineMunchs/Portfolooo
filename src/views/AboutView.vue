@@ -7,7 +7,7 @@
           About - Contact
         </h1>
         <img
-          src="../../images/Smil.svg"
+          src="/images/Smil.svg"
           alt="Smiley"
           className="h-8 w-8 ml-2 mb-14 hover:animate-spin"
         />
@@ -97,7 +97,7 @@
          target="_blank"
          class="mb-6 group transition-opacity duration-300 opacity-30 hover:opacity-100">
         <div class="flex items-center">
-          <img src="../../images/arrow.svg"
+          <img src="/images/arrow.svg"
                alt="GitHub Arrow"
                class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" />
           <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">GitHub</span>
@@ -109,7 +109,7 @@
          target="_blank"
          class="mb-6 group transition-opacity duration-300 opacity-30 hover:opacity-100">
         <div class="flex items-center">
-          <img src="../../images/arrow.svg"
+          <img src="/images/arrow.svg"
                alt="LinkedIn Arrow"
                class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" />
           <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">LinkedIn</span>
@@ -120,7 +120,7 @@
       <div @click="copyEmailToClipboard" 
            class="mb-6 group transition-opacity duration-300 opacity-30 hover:opacity-100 cursor-pointer relative">
         <div class="flex items-center">
-          <img src="../../images/arrow.svg"
+          <img src="/images/arrow.svg"
                alt="Email Arrow"
                class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" />
           <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">Email</span>
@@ -133,7 +133,7 @@
          target="_blank"
          class="group transition-opacity duration-300 opacity-30 hover:opacity-100">
         <div class="flex items-center">
-          <img src="../../images/arrow.svg"
+          <img src="/images/arrow.svg"
                alt="Instagram Arrow"
                class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" />
           <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">Instagram</span>
