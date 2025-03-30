@@ -143,8 +143,8 @@ export default {
     category="Experiencqe Design"
     tags="UX/UI design, interactive storytelling, historical narrative, user research, HTML/CSS, JavaScript, content strategy, information architecture, visual design, Figma"
     thumbnail="/images/thumbnailreview.png"
-    :description="projectDetails.PoseClassification"
-    :galleryItems="projectGalleries.PoseClassification"
+    :description="projectDetails.Webshop"
+    :galleryItems="projectGalleries.Webshop"
     projectLink="https://welfareorgreenland.netlify.app/"
   />
   
