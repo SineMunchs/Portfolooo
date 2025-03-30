@@ -33,9 +33,10 @@ export default {
           "/video/Interactive.mp4",
         ],
         Webshop: [
-          "/video/IDHaiku.mp4",
-          "/video/IDHjerte.mp4",
-          "/video/IDhjerte2.mp4",
+          "/images/webshop.png",
+          "/images/webshop1.png",
+          "/images/webshop2.png",
+          
         ],
         PoseClassification: [
           "/video/IDHaiku.mp4",
@@ -87,7 +88,9 @@ export default {
               "/images/photo6.jpg",             
               "/images/photo9.jpg",             
               "/images/photo8.jpg",
-              "/images/photo10.jpg",             
+              "/images/photo10.jpg",
+              "/images/photo11.jpg",
+              "/images/photo12.jpg",  
              
           ]
         },
@@ -181,10 +184,10 @@ export default {
   
   <!-- Multi-project Dropdown for Color Observation -->
   <ProjectDropdown
-    title="Color Observation" 
+    title="Observation" 
     date="10/09/2023"
-    category="Color Studies"
-    tags="Form, color theory, typography, drawing, creativity, observation"
+    category="Observation"
+    tags="Form, color theory, typography, drawing, creativity, observation, Photo, Processing, Projection mapping, Blender"
     thumbnail="/images/Makrel1.jpg"
     :description="projectDetails.colorObservation"
     :subProjects="colorObservationSubProjects"
