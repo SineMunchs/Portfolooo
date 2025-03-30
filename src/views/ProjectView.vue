@@ -137,7 +137,7 @@ export default {
   <ProjectDropdown
     title="Webshop" 
     date="21/01/2025"
-    category="Pose Classification"
+    category="Experiencqe Design"
     tags="UX/UI design, interactive storytelling, historical narrative, user research, HTML/CSS, JavaScript, content strategy, information architecture, visual design, Figma"
     thumbnail="/images/thumbnailreview.png"
     :description="projectDetails.PoseClassification"
