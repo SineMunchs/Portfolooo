@@ -7,7 +7,7 @@
           About - Contact
         </h1>
         <img
-          src="/images/Smil.svg"
+          src="/images/Smil1.svg"
           alt="Smiley"
           className="h-8 w-8 ml-2 mb-14 hover:animate-spin"
         />
