@@ -50,7 +50,7 @@ export default {
           "/images/hoshoIdentitet.jpg"
         ],
         creativeCoding: [
-          "/video/KusamaYayoi_Processing.mp4",      
+          "/video/KusamaYayoi_Processing.webm",      
           "/video/ccP5.mp4",  
           "/video/ccMesh.mp4",             
           "/video/Acaii.mp4", 
