@@ -3,7 +3,7 @@
     <!-- Content sections -->
     <div class="content-container">
       <div className="mt-20 ml-1 flex items-center">
-        <h1 className="text-blå text-6xl md:text-7xl lg:text-8xl tracking-widest">
+        <h1 className="text-blå text-6xl md:text-7xl lg:text-8xl tracking-widest font-normal">
           About - Contact
         </h1>
         <img
@@ -15,32 +15,32 @@
 
       <!-- Education Section -->
       <div className="mt-16 ml-1">
-        <h1 className="text-blå text-5xl md:text-6xl lg:text-7xl tracking-widest">
+        <h1 className="text-blå text-5xl md:text-6xl lg:text-7xl tracking-widest font-normal">
           Education
         </h1>
       </div>
 
       <div class="mt-6 p-2 max-w-4xl">
         <div class="mb-8">
-          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-bold">2023-2026</h2>
-          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-bold">BA in Coded Design - DMJX</h3>
-          <p className="text-xl md:text-2xl tracking-wide text-blå mt-2">
+          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-normal">2023-2026</h2>
+          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-normal">BA in Coded Design - DMJX</h3>
+          <p className="text-base md:text-lg tracking-wide text-blå mt-2">
             In my pursuit of Coded Design at DMJX, I'm cultivating a unique blend of visual communication and digital expertise. This program enables me to push creative boundaries while developing technical proficiencies in various design and coding disciplines, preparing me to create innovative digital experiences that communicate effectively in today's dynamic media landscape.
           </p>
         </div>
         
         <div class="mb-8">
-          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-bold">2020-2022</h2>
-          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-bold">Entrepreneurship & Design - Københavns Erhvervsakademi (KEA)</h3>
-          <p className="text-xl md:text-2xl tracking-wide text-blå mt-2">
+          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-normal">2020-2022</h2>
+          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-normal">Entrepreneurship & Design - Københavns Erhvervsakademi </h3>
+          <p className="text-base md:text-lg tracking-wide text-blå mt-2">
             My journey at KEA equipped me with a strong foundation in design thinking and entrepreneurial mindset. This program fostered my ability to identify opportunities, develop innovative concepts, and bring designs to life with a business-oriented approach. The hands-on projects and collaborative environment shaped my understanding of how design can drive business value and social impact.
           </p>
         </div>
         
         <div class="mb-8">
-          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-bold">2021</h2>
-          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-bold">Communication - University of Applied Science (Rotterdam, Exchange)</h3>
-          <p className="text-xl md:text-2xl tracking-wide text-blå mt-2">
+          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-normal">2021</h2>
+          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-normal">Communication - University of Applied Science (Rotterdam, Exchange)</h3>
+          <p className="text-base md:text-lg tracking-wide text-blå mt-2">
             During my exchange semester in Rotterdam, I immersed myself in communication studies within an international context. This experience broadened my perspective on cross-cultural design approaches and communication strategies. The program enhanced my ability to craft messages that resonate across diverse audiences while introducing me to European design practices and methodologies.
           </p>
         </div>
@@ -55,33 +55,33 @@
 
       <div class="mt-6 p-2 max-w-4xl">
         <div class="mb-8">
-          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-bold">Jan 2023 - Present</h2>
-          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-bold">E-commerce & SoMe Specialist - Architectmade</h3>
-          <p className="text-xl md:text-2xl tracking-wide text-blå mt-2">
+          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-normal">Jan 2023 - Present</h2>
+          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-normal">E-commerce & SoMe Specialist - Architectmade</h3>
+          <p className="text-base md:text-lg tracking-wide text-blå mt-2">
             At Architectmade, I manage their Shopify e-commerce platform and social media presence. My responsibilities include optimizing the online shopping experience, implementing digital marketing strategies, creating engaging content that showcases their architectural design products, and analyzing performance metrics to drive growth in their digital channels.
           </p>
         </div>
         
         <div class="mb-8">
-          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-bold">Jul 2022 - Dec 2022</h2>
-          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-bold">Social Media & Content Creator - Picnic Glyptoteket</h3>
-          <p className="text-xl md:text-2xl tracking-wide text-blå mt-2">
+          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-normal">Jul 2022 - Dec 2022</h2>
+          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-normal">Social Media & Content Creator - Picnic Glyptoteket</h3>
+          <p className="text-base md:text-lg tracking-wide text-blå mt-2">
             While working with Picnic at Glyptoteket, I crafted compelling visual narratives and social media content that bridged the gap between classical art and contemporary audiences. My role involved developing creative concepts, producing photography and video content, managing social media campaigns, and helping to elevate the unique cultural experience of picnicking among ancient sculptures.
           </p>
         </div>
         
         <div class="mb-8">
-          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-bold">Apr 2022 - Jun 2022</h2>
-          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-bold">SoMe Assistant & Graphic Designer - Bertung PR</h3>
-          <p className="text-xl md:text-2xl tracking-wide text-blå mt-2">
+          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-normal">Apr 2022 - Jun 2022</h2>
+          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-normal">SoMe Assistant & Graphic Designer - Bertung PR</h3>
+          <p className="text-base md:text-lg tracking-wide text-blå mt-2">
             At Bertung PR, I provided direct social media support to the CEO while handling various graphic design projects. My responsibilities included creating visual assets for client campaigns, designing marketing materials, managing social media content calendars, and ensuring consistent brand representation across different platforms and media.
           </p>
         </div>
         
         <div class="mb-8">
-          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-bold">2014-2021</h2>
-          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-bold">Server, SoMe & Event Planner - Kadeau (Copenhagen/Bornholm)</h3>
-          <p className="text-xl md:text-2xl tracking-wide text-blå mt-2">
+          <h2 className="text-blå text-3xl md:text-4xl tracking-wide font-normal">2014-2021</h2>
+          <h3 className="text-blå text-2xl md:text-3xl tracking-wide font-normal">Server, SoMe & Event Planner - Kadeau (Copenhagen/Bornholm)</h3>
+          <p className="text-base md:text-lg tracking-wide text-blå mt-2">
             During my long-term position at Kadeau restaurants in both Copenhagen and Bornholm, I wore multiple hats as a server, social media coordinator, and event planner. This role allowed me to develop strong hospitality skills while helping to build the digital presence of these acclaimed restaurants. I managed bookings, coordinated special events, created compelling content for their social channels, and ensured exceptional guest experiences that aligned with their Nordic culinary philosophy.
           </p>
         </div>
@@ -100,7 +100,7 @@
           <img src="/images/arrow.svg"
                alt="GitHub Arrow"
                class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" />
-          <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">GitHub</span>
+          <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline font-normal">GitHub</span>
         </div>
       </a>
 
