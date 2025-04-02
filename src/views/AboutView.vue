@@ -90,55 +90,109 @@
       <div class="pb-64 md:pb-80 lg:pb-96"></div>
     </div>
 
-    <!-- Overlay Links in Bottom Right -->
-    <div class="fixed right-0 bottom-0 w-full h-3/4 z-10 flex flex-col justify-end items-end p-8">
-      <!-- GIT -->
-      <a href="https://github.com/SineMunchs"
-         target="_blank"
-         class="mb-6 group transition-opacity duration-300 opacity-30 hover:opacity-100">
-        <div class="flex items-center">
-          <img src="/images/arrow.svg"
-               alt="GitHub Arrow"
-               class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" />
-          <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline font-normal">GitHub</span>
-        </div>
-      </a>
+    <!-- Overlay Links in Bottom Right - Mobile-optimized version but still vertical -->
+    <div class="fixed right-0 bottom-0 w-full h-auto z-10 flex flex-col justify-end items-end p-4 md:p-8">
+      <!-- Mobile link container - vertical layout but with smaller text -->
+      <div class="flex flex-col items-end md:hidden">
+        <!-- GIT -->
+        <a href="https://github.com/SineMunchs"
+          target="_blank"
+          class="mb-2 group transition-opacity duration-300 opacity-70 hover:opacity-100">
+          <div class="flex items-center">
+            <img src="/images/arrow.svg"
+              alt="GitHub Arrow"
+              class="h-5 w-6" />
+            <span class="text-3xl tracking-wide text-blå group-hover:underline font-normal">GitHub</span>
+          </div>
+        </a>
 
-      <!-- LINKEDIN -->
-      <a href="https://www.linkedin.com/in/sine-munch-b992461b8/"
-         target="_blank"
-         class="mb-6 group transition-opacity duration-300 opacity-30 hover:opacity-100">
-        <div class="flex items-center">
-          <img src="/images/arrow.svg"
-               alt="LinkedIn Arrow"
-               class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" />
-          <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">LinkedIn</span>
-        </div>
-      </a>
+        <!-- LINKEDIN -->
+        <a href="https://www.linkedin.com/in/sine-munch-b992461b8/"
+          target="_blank"
+          class="mb-2 group transition-opacity duration-300 opacity-70 hover:opacity-100">
+          <div class="flex items-center">
+            <img src="/images/arrow.svg"
+              alt="LinkedIn Arrow"
+              class="h-5 w-6" />
+            <span class="text-3xl tracking-wide text-blå group-hover:underline">LinkedIn</span>
+          </div>
+        </a>
 
-      <!-- EMAIL -->
-      <div @click="copyEmailToClipboard" 
-           class="mb-6 group transition-opacity duration-300 opacity-30 hover:opacity-100 cursor-pointer relative">
-        <div class="flex items-center">
-          <img src="/images/arrow.svg"
-               alt="Email Arrow"
-               class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" />
-          <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">Email</span>
+        <!-- EMAIL -->
+        <div @click="copyEmailToClipboard" 
+            class="mb-2 group transition-opacity duration-300 opacity-70 hover:opacity-100 cursor-pointer relative">
+          <div class="flex items-center">
+            <img src="/images/arrow.svg"
+              alt="Email Arrow"
+              class="h-5 w-6" />
+            <span class="text-3xl tracking-wide text-blå group-hover:underline">Email</span>
+          </div>
+          <span v-if="copySuccess" class="absolute top-full right-0 text-sm text-blå mt-1">Email copied!</span>
         </div>
-        <span v-if="copySuccess" class="absolute top-full right-0 text-lg md:text-xl text-blå mt-1">Email copied!</span>
+
+        <!-- INSTAGRAM -->
+        <a href="https://www.instagram.com/codedstuff/"
+          target="_blank"
+          class="group transition-opacity duration-300 opacity-70 hover:opacity-100">
+          <div class="flex items-center">
+            <img src="/images/arrow.svg"
+              alt="Instagram Arrow"
+              class="h-5 w-6" />
+            <span class="text-3xl tracking-wide text-blå group-hover:underline">Instagram</span>
+          </div>
+        </a>
       </div>
 
-      <!-- INSTAGRAM -->
-      <a href="https://www.instagram.com/codedstuff/"
-         target="_blank"
-         class="group transition-opacity duration-300 opacity-30 hover:opacity-100">
-        <div class="flex items-center">
-          <img src="/images/arrow.svg"
-               alt="Instagram Arrow"
-               class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" />
-          <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">Instagram</span>
+      <!-- Desktop version (hidden on mobile) -->
+      <div class="hidden md:flex md:flex-col">
+        <!-- GIT -->
+        <a href="https://github.com/SineMunchs"
+           target="_blank"
+           class="mb-6 group transition-opacity duration-300 opacity-30 hover:opacity-100">
+          <div class="flex items-center">
+            <img src="/images/arrow.svg"
+                 alt="GitHub Arrow"
+                 class="h-10 w-12 lg:h-12 lg:w-16" />
+            <span class="text-7xl lg:text-9xl tracking-widest text-blå group-hover:underline font-normal">GitHub</span>
+          </div>
+        </a>
+
+        <!-- LINKEDIN -->
+        <a href="https://www.linkedin.com/in/sine-munch-b992461b8/"
+           target="_blank"
+           class="mb-6 group transition-opacity duration-300 opacity-30 hover:opacity-100">
+          <div class="flex items-center">
+            <img src="/images/arrow.svg"
+                 alt="LinkedIn Arrow"
+                 class="h-10 w-12 lg:h-12 lg:w-16" />
+            <span class="text-7xl lg:text-9xl tracking-widest text-blå group-hover:underline">LinkedIn</span>
+          </div>
+        </a>
+
+        <!-- EMAIL -->
+        <div @click="copyEmailToClipboard" 
+             class="mb-6 group transition-opacity duration-300 opacity-30 hover:opacity-100 cursor-pointer relative">
+          <div class="flex items-center">
+            <img src="/images/arrow.svg"
+                 alt="Email Arrow"
+                 class="h-10 w-12 lg:h-12 lg:w-16" />
+            <span class="text-7xl lg:text-9xl tracking-widest text-blå group-hover:underline">Email</span>
+          </div>
+          <span v-if="copySuccess" class="absolute top-full right-0 text-lg md:text-xl text-blå mt-1">Email copied!</span>
         </div>
-      </a>
+
+        <!-- INSTAGRAM -->
+        <a href="https://www.instagram.com/codedstuff/"
+           target="_blank"
+           class="group transition-opacity duration-300 opacity-30 hover:opacity-100">
+          <div class="flex items-center">
+            <img src="/images/arrow.svg"
+                 alt="Instagram Arrow"
+                 class="h-10 w-12 lg:h-12 lg:w-16" />
+            <span class="text-7xl lg:text-9xl tracking-widest text-blå group-hover:underline">Instagram</span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -206,5 +260,15 @@ export default {
 
 .content-container:has(+ div a:hover) {
   filter: blur(1px);
+}
+
+/* Add smoother scrolling for mobile */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 </style>
