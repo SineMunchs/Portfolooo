@@ -15,9 +15,10 @@ export default {
       projectDetails: {
         interactiveDesign: "For this semester project, I tackled rising neck pain among youth by creating NEO—a gamified solution where users draw with their nose to improve mobility. My research informed a design balancing medical credibility with playful engagement through achievements, social challenges, and a symptom-tracking slider. The minimalist blue interface with a custom mascot maintains connection to Danish Physiotherapists while appealing to teens. This project showcased my ability to transform health education into interactive experiences that feel engaging rather than clinical.",
        Webshop: "For this project, I created an experience site that conveys complex historical narratives through interactive storytelling. I added a humorous twist to the absurd concept of buying Greenland by flipping the narrative—what if Denmark sold Greenland instead? The satirical webshop explores what the country could purchase with the proceeds to improve Danish welfare. The design balances historical commentary with engaging user experience, using primary sources and fictional product listings to create both entertainment and reflection. This project demonstrates my ability to transform serious geopolitical concepts into accessible digital experiences that engage visitors through humor while prompting deeper consideration of national priorities.",
-        PoseClassification: "Artificial Intelligence and How You Can Use It to Expand Your Creative Use of Code. A three-module course exploring AI for creative coding. Module 1 introduces machine learning with Teachable Machine for classifying images, sounds, and poses. Module 2 covers generative AI technologies for creating text, images, and sounds. Module 3 allows students to develop self-directed projects applying these tools to extend creative capabilities.Read more about the course through the link underneath.",
+        PoseClassification: "Artificial Intelligence and How You Can Use It to Expand Your Creative Use of Code. A three-module course exploring AI for creative coding. Module 1 introduces machine learning with Teachable Machine for classifying images, sounds, and poses. Module 2 covers generative AI technologies for creating text, images, and sounds. Module 3 allows students to develop self-directed projects applying these tools to extend creative capabilities. <a> href= Read more about the course through the link underneath. </a>",
         jewellery: "I created a project integrating various disciplines from my studies. I applied form principles for balanced compositions and color theory for a harmonious, emotionally responsive palette. Typography selection balanced readability and personality through testing multiple font families.My drawing combined digital and traditional techniques in Procreate and Illustrator, supported by brainstorming and mood boards. For 3D elements, I used Blender to model and texture objects with attention to lighting. Programming with JavaScript and CSS brought interactive elements to life while maintaining visual integrity.",
         creativeCoding: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
+        projectionMapping: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
         visualLanguage: "An exploration of form, color theory, typography and drawing techniques.",
         colorObservation: "A series of color studies exploring different relationships between natural elements and design principles."
       },
@@ -30,7 +31,7 @@ export default {
           "/images/neoImplementering.png",
           "/images/neoCardcomp.png",
           "/images/neofigma.png",
-          "/video/Interactive.mp4",
+          "/video/Interactive.webm",
         ],
         Webshop: [
           "/images/webshop.png",
@@ -51,12 +52,15 @@ export default {
         ],
         creativeCoding: [
           "/video/KusamaYayoi_Processing.webm",      
-          "/video/ccP5.mp4",  
-          "/video/ccMesh.mp4",             
+          "/video/ccP5.webm",  
+          "/video/ccMesh.webm",             
           "/video/Acaii.webm", 
           "/video/ccboxes.webm",
-          "/video/Molnar.mp4",
+          "/video/Molnar.webm",
           "/video/ccHello.webm",  
+        ],
+        projectionMapping: [
+          "/video/KusamaYayoi_Processing.webm",      
         ],
         visualLanguage: [
           "/images/face.svg",
@@ -180,6 +184,16 @@ export default {
     thumbnail="/images/creativeThumbnail.png"
     :description="projectDetails.creativeCoding"
     :galleryItems="projectGalleries.creativeCoding"
+  />
+
+  <ProjectDropdown
+    title="Project Mapping"
+    date="17/11/2023"
+    category="Projection"
+    tags="Drawing with Processing, p5.js"
+    thumbnail="/images/creativeThumbnail.png"
+    :description="projectDetails.projectionMapping"
+    :galleryItems="projectGalleries.projectionMapping"
   />
   
   <!-- Multi-project Dropdown for Color Observation -->

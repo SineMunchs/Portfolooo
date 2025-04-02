@@ -89,9 +89,7 @@
 
       <!-- Mobile Contact Section -->
       <div class="md:hidden mt-16 mb-20 p-2">
-        <h1 class="text-blå text-5xl ml-1 tracking-widest font-normal mb-8">
-          Contact
-        </h1>
+       
         
         <div class="space-y-6">
           <!-- GitHub -->
