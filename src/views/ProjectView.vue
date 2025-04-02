@@ -54,7 +54,7 @@ export default {
           "/video/ccP5.mp4",  
           "/video/ccMesh.mp4",             
           "/video/Acaii.mp4", 
-          "/video/ccboxes.mp4",
+          "/video/ccboxes.webm",
           "/video/Molnar.mp4",
           "/video/ccHello.mp4",  
         ],
