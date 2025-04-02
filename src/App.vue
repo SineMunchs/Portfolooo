@@ -1,5 +1,5 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 
 export default {
@@ -7,6 +7,21 @@ export default {
     const isScrolled = ref(false)
     const navBarClass = ref('text-blå')
     const navbarElement = ref(null)
+    const router = useRouter()
+    const route = useRoute()
+
+    // Function to handle WORK link click
+    const handleWorkClick = (event) => {
+      // If we're already on the projects page, prevent default navigation
+      // and force a hard reload of the page
+      if (route.path === '/projects') {
+        event.preventDefault()
+        
+        // Use window.location.reload() to force a complete page refresh
+        // This is more forceful than router navigation and will reset all components
+        window.location.reload()
+      }
+    }
 
     const handleScroll = () => {
       isScrolled.value = window.scrollY > 50
@@ -102,7 +117,8 @@ export default {
     
     return {
       navBarClass,
-      navbarElement
+      navbarElement,
+      handleWorkClick
     }
   }
 }
@@ -137,6 +153,7 @@ export default {
         'hover:text-gray-300': navBarClass.includes('text-white'),
         'hover:text-gray-600': navBarClass.includes('text-black')
       }"
+      @click="handleWorkClick"
     >
       WORK
     </RouterLink>
@@ -145,7 +162,6 @@ export default {
       to="/about"
       class="text-lg md:text-xl tracking-widest cursor-pointer"
       :class="{
-        'hover:text-red-800': navBarClass.includes('text-red'),
         'hover:text-blue-800': navBarClass.includes('text-blå'),
         'hover:text-gray-300': navBarClass.includes('text-white'),
         'hover:text-gray-600': navBarClass.includes('text-black')
@@ -159,11 +175,9 @@ export default {
 </template>
 
 <style>
-
 .text-acb5e0 {
   color: #acb5e0;
 }
-
 
 .hover\:text-acb5e0:hover {
   color: #acb5e0;
