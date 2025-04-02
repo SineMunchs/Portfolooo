@@ -53,10 +53,10 @@ export default {
           "/video/KusamaYayoi_Processing.webm",      
           "/video/ccP5.mp4",  
           "/video/ccMesh.mp4",             
-          "/video/Acaii.mp4", 
+          "/video/Acaii.webm", 
           "/video/ccboxes.webm",
           "/video/Molnar.mp4",
-          "/video/ccHello.mp4",  
+          "/video/ccHello.webm",  
         ],
         visualLanguage: [
           "/images/face.svg",
@@ -186,7 +186,7 @@ export default {
   <ProjectDropdown
     title="Observation" 
     date="10/09/2023"
-    category="Observation"
+    category="Things I observe"
     tags="Form, color theory, typography, drawing, creativity, observation, Photo, Processing, Projection mapping, Blender"
     thumbnail="/images/Makrel1.jpg"
     :description="projectDetails.colorObservation"
