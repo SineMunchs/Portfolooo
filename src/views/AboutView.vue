@@ -25,7 +25,7 @@
           <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">2023-2026</h2>
           <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal">BA in Coded Design - DMJX</h3>
           <p class="text-base md:text-lg tracking-wide text-blå mt-2">
-            In my pursuit of Coded Design at DMJX, I'm cultivating a unique blend of visual communication and digital expertise. This program enables me to push creative boundaries while developing technical proficiencies in various design and coding disciplines, preparing me to create innovative digital experiences that communicate effectively in today's dynamic media landscape.
+            In my pursuit of Coded Design at DMJX, I'm learning a unique blend of visual communication and digital expertise. This program enables me to push creative boundaries while developing technical proficiencies in various design and coding disciplines, preparing me to create innovative digital experiences that communicate effectively in today's dynamic media landscape.
           </p>
         </div>
         
@@ -41,7 +41,7 @@
           <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">2021</h2>
           <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal">Communication - University of Applied Science (Rotterdam, Exchange)</h3>
           <p class="text-base md:text-lg tracking-wide text-blå mt-2">
-            During my exchange semester in Rotterdam, I immersed myself in communication studies within an international context. This experience broadened my perspective on cross-cultural design approaches and communication strategies. The program enhanced my ability to craft messages that resonate across diverse audiences while introducing me to European design practices and methodologies.
+            During my exchange semester in Rotterdam, I studied communication within an international context. This experience broadened my perspective on cross-cultural design approaches and communication strategies. The program enhanced my ability to craft messages that resonate across diverse audiences while introducing me to European design practices and methodologies.
           </p>
         </div>
       </div>
@@ -58,7 +58,7 @@
           <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">Jan 2023 - Present</h2>
           <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal">E-commerce & SoMe Specialist - Architectmade</h3>
           <p class="text-base md:text-lg tracking-wide text-blå mt-2">
-            At Architectmade, I manage their Shopify e-commerce platform and social media presence. My responsibilities include optimizing the online shopping experience, implementing digital marketing strategies, creating engaging content that showcases their architectural design products, and analyzing performance metrics to drive growth in their digital channels.
+            At Architectmade, I manage their Shopify e-commerce platform and social media presence. My responsibilities include optimizing the online shopping experience, implementing digital marketing strategies, creating engaging content that showcases their products, and analyzing performance metrics to drive growth in their digital channels.
           </p>
         </div>
         
@@ -80,7 +80,7 @@
         
         <div class="mb-8">
           <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">2014-2021</h2>
-          <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal">Server, SoMe & Event Planner - Kadeau (Copenhagen/Bornholm)</h3>
+          <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal"> All arounder, Waitress, SoMe, & Events - Kadeau </h3>
           <p class="text-base md:text-lg tracking-wide text-blå mt-2">
             During my long-term position at Kadeau restaurants in both Copenhagen and Bornholm, I wore multiple hats as a server, social media coordinator, and event planner. This role allowed me to develop strong hospitality skills while helping to build the digital presence of these acclaimed restaurants. I managed bookings, coordinated special events, created compelling content for their social channels, and ensured exceptional guest experiences that aligned with their Nordic culinary philosophy.
           </p>
