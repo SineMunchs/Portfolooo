@@ -252,7 +252,7 @@ export default {
             
             <!-- Project Description -->
             <div class="col-span-1 md:col-span-2">
-              <p class="mb-8 text-base leading-relaxed"></p>
+              <p class="mb-8 text-base leading-relaxed">{{ description }}</p>
               
               <!-- Project Link Button -->
               <a 
