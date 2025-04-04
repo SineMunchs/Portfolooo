@@ -31,10 +31,7 @@ export default {
       type: String,
       default: '01/01/2024'
     },
-    category: {
-      type: String,
-      default: 'Project'
-    },
+  
     galleryItems: {
       type: Array,
       default: () => []

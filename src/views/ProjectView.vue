@@ -18,10 +18,10 @@ export default {
         PoseClassification: "Artificial Intelligence and How You Can Use It to Expand Your Creative Use of Code. A three-module course exploring AI for creative coding. Module 1 introduces machine learning with Teachable Machine for classifying images, sounds, and poses. Module 2 covers generative AI technologies for creating text, images, and sounds. Module 3 allows students to develop self-directed projects applying these tools to extend creative capabilities. <a> href= Read more about the course through the link underneath. </a>",
         jewellery: "I created a project integrating various disciplines from my studies. I applied form principles for balanced compositions and color theory for a harmonious, emotionally responsive palette. Typography selection balanced readability and personality through testing multiple font families.My drawing combined digital and traditional techniques in Procreate and Illustrator, supported by brainstorming and mood boards. For 3D elements, I used Blender to model and texture objects with attention to lighting. Programming with JavaScript and CSS brought interactive elements to life while maintaining visual integrity.",
         creativeCoding: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
-        ProjectionMapping: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
+        ProjectionMapping: "Projection Mapping installation for Thoravej 29 and Generation Hope's Snart lab. The project transformed over 3,000 letters from young people into visual art. Working with Freja, we focused on animating the doodles from these letters using AI, bringing their hopes and dreams to life. The installation remains on display at Thoravej 29.",
         
         visualLanguage: "An exploration of form, color theory, typography and drawing techniques.",
-        colorObservation: "A series of color studies exploring different relationships between natural elements and design principles."
+        colorObservation: ""
       },
       // Gallery images for each project
       projectGalleries: {
@@ -73,8 +73,8 @@ export default {
       // Color Observation sub-projects
       colorObservationSubProjects: [
         {
-          title: "Sea to Shape",
-          description: "<< Sea to Shape >> From silvery makrel on ice, I distilled a palette of blues, grays, and cool neutrals. These colors—borrowed from the Bornholm deli, the Mackrel, turned into flowing geometric abstractions. Each curved composition breathes differently despite sharing the same oceanic palette, revealing how arrangement alone shifts visual harmony.",
+          title: "Color Observation",
+          description: "Sea to Shape. From silvery makrel on ice, I distilled a palette of blues, grays, and cool neutrals. These colors—borrowed from the Bornholm deli, the Mackrel, turned into flowing geometric abstractions. Each curved composition breathes differently despite sharing the same oceanic palette, revealing how arrangement alone shifts visual harmony.",
           galleryItems: [
             "/images/Makrel.jpg",
             "/images/ColorObs.jpg"
@@ -134,7 +134,6 @@ export default {
   <ProjectDropdown
     title="Interactive Design" 
     date="24/01/2025"
-    category="Identity and visualization"
     tags="UI design, UX, visual identity, prototyping, research, figma, Adobe, interactive design"
     :description="projectDetails.interactiveDesign"
     :galleryItems="projectGalleries.interactiveDesign"
@@ -144,7 +143,6 @@ export default {
   <ProjectDropdown
     title="Webshop" 
     date="21/01/2025"
-    category="Experience Design"
     tags="UX/UI design, interactive storytelling, historical narrative, user research, HTML/CSS, JavaScript, content strategy, information architecture, visual design, Figma"
     :description="projectDetails.Webshop"
     :galleryItems="projectGalleries.Webshop"
@@ -155,7 +153,6 @@ export default {
   <ProjectDropdown
     title="Intelligent Design" 
     date="21/11/2024"
-    category="Pose Classification"
     tags="P5.js, interactive design, creative coding, AI, machine learning, generative art"
     :description="projectDetails.PoseClassification"
     :galleryItems="projectGalleries.PoseClassification"
@@ -166,8 +163,7 @@ export default {
   <ProjectDropdown
     title="Jewellery Generator"
     date="03/01/2024"
-    category="Branding"
-    tags="Form, Color Theory Typography, Drawing, Creativity, 3D Modelling, Programming, Processing, Blender, JavaScript, CSS"
+    tags="Form, color Theory typography, drawing, creativity, 3D modelling, programming, processing, blender, javaScript, CSS"
     :description="projectDetails.jewellery"
     :galleryItems="projectGalleries.jewellery"
   />
@@ -176,8 +172,7 @@ export default {
   <ProjectDropdown
     title="Creative Coding"
     date="17/11/2023"
-    category="Generative Art"
-    tags="Drawing with Processing, p5.js"
+    tags="Drawing with processing, p5.js"
     :description="projectDetails.creativeCoding"
     :galleryItems="projectGalleries.creativeCoding"
   />
@@ -185,19 +180,19 @@ export default {
 <ProjectDropdown
     title="Projection Mapping"
     date="22/03/2025"
-    category="AI, video Runway"
-    tags="AI, Projection Mapping, After Effect, Generative Art"
+    tags="AI, projection mapping, after effect, generative Art"
     :description="projectDetails.projectionMapping"
     :galleryItems="projectGalleries.projectionMapping"
   />
   
-  <!-- Multi-project Dropdown for Color Observation -->
-  <ProjectDropdown
+   <!-- Multi-project Dropdown for Color Observation -->
+   <ProjectDropdown
     title="Observation" 
     date="10/09/2023"
     category="Things I observe"
-    tags="Form, color theory, typography, drawing, creativity, observation, Photo, Processing, Projection mapping, Blender"
+    tags="form, color theory, typography, drawing, creativity, observation, photo, research"
     :description="projectDetails.colorObservation"
-    :sub --></ProjectDropdown>
+    :subProjects="colorObservationSubProjects"
+  />
 
     </template>
