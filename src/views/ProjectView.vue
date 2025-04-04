@@ -18,6 +18,7 @@ export default {
         PoseClassification: "Artificial Intelligence and How You Can Use It to Expand Your Creative Use of Code. A three-module course exploring AI for creative coding. Module 1 introduces machine learning with Teachable Machine for classifying images, sounds, and poses. Module 2 covers generative AI technologies for creating text, images, and sounds. Module 3 allows students to develop self-directed projects applying these tools to extend creative capabilities. <a> href= Read more about the course through the link underneath. </a>",
         jewellery: "I created a project integrating various disciplines from my studies. I applied form principles for balanced compositions and color theory for a harmonious, emotionally responsive palette. Typography selection balanced readability and personality through testing multiple font families.My drawing combined digital and traditional techniques in Procreate and Illustrator, supported by brainstorming and mood boards. For 3D elements, I used Blender to model and texture objects with attention to lighting. Programming with JavaScript and CSS brought interactive elements to life while maintaining visual integrity.",
         creativeCoding: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
+        ProjectionMapping: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
         
         visualLanguage: "An exploration of form, color theory, typography and drawing techniques.",
         colorObservation: "A series of color studies exploring different relationships between natural elements and design principles."
@@ -52,17 +53,16 @@ export default {
         ],
         creativeCoding: [
           "/video/KusamaYayoi_Processing.webm",      
-          "/video/ccP5.webm",  
+          "/video/ccp5.webm",  
           "/video/ccMesh.webm",             
           "/video/Acaii.webm", 
           "/video/ccboxes.webm",
           "/video/Molnar.webm",
           "/video/ccHello.webm",  
         ],
-        // projectionMapping: [
-        //projectionMapping: [
-         // "/video/KusamaYayoi_Processing.webm",      
-        //],
+        projectionMapping: [
+        "/video/KusamaYayoi_Processing.webm",      
+        ],
         visualLanguage: [
           "/images/face.svg",
           "/images/vin.jpg",
@@ -187,15 +187,15 @@ export default {
     :galleryItems="projectGalleries.creativeCoding"
   />
 
-<!--  <ProjectDropdown
-    title="Project Mapping"
-    date="17/11/2023"
-    category="Projection"
-    tags="Drawing with Processing, p5.js"
+<ProjectDropdown
+    title="Projection Mapping"
+    date="22/03/2025"
+    category="AI, video Runway"
+    tags="AI, Projection Mapping, After Effect, Generative Art"
     thumbnail="/images/creativeThumbnail.png"
     :description="projectDetails.projectionMapping"
     :galleryItems="projectGalleries.projectionMapping"
-  />-->
+  />
   
   <!-- Multi-project Dropdown for Color Observation -->
   <ProjectDropdown

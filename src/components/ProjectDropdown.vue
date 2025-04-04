@@ -54,9 +54,7 @@ export default {
       isOpen: false,
       lightboxOpen: false,
       currentLightboxIndex: 0,
-      currentGallerySource: null, // 'main' or index of subProject
-      isMobile: false,
-      videosToLoad: {}
+      currentGallerySource: null // 'main' or index of subProject
     }
   },
   computed: {
@@ -102,119 +100,11 @@ export default {
   },
   methods: {
     toggleDropdown() {
-      this.isOpen = !this.isOpen;
-      
-      if (this.isOpen) {
-        // Initialize lazy loading when dropdown opens
-        this.$nextTick(() => {
-          this.initLazyLoading();
-        });
-      }
+      this.isOpen = !this.isOpen
     },
-    
     isVideo(path) {
-      return path && (path.endsWith('.mp4') || path.endsWith('.webm') || path.endsWith('.ogg'));
+      return path && (path.endsWith('.mp4') || path.endsWith('.webm') || path.endsWith('.ogg'))
     },
-    
-    // Get mobile-optimized video source if available
-    getMobileVideoSource(src) {
-      if (!src || !this.isMobile) return src;
-      
-      // Create path for mobile-optimized version
-      const ext = src.split('.').pop();
-      const mobileSrc = src.replace(`.${ext}`, `-mobile.${ext}`);
-      
-      return mobileSrc;
-    },
-    
-    // Get poster image for video (first frame thumbnail)
-    getVideoPoster(src) {
-      if (!src) return '';
-      
-      // Create path for thumbnail image
-      const ext = src.split('.').pop();
-      return src.replace(`.${ext}`, '-thumb.jpg');
-    },
-    
-    // Initialize lazy loading for videos
-    initLazyLoading() {
-      if (!('IntersectionObserver' in window)) return;
-      
-      const videoObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const video = entry.target;
-            const videoId = video.dataset.videoId;
-            
-            if (videoId && !this.videosToLoad[videoId]) {
-              this.loadVideo(video);
-              this.videosToLoad[videoId] = true;
-            }
-            
-            videoObserver.unobserve(video);
-          }
-        });
-      }, { 
-        rootMargin: '100px 0px', 
-        threshold: 0.1 
-      });
-      
-      // Observe all videos
-      this.$nextTick(() => {
-        document.querySelectorAll('.lazy-video').forEach(video => {
-          videoObserver.observe(video);
-        });
-      });
-    },
-    
-    // Load video based on device type
-    loadVideo(videoElement) {
-      if (!videoElement) return;
-      
-      const videoSrc = videoElement.dataset.src;
-      if (!videoSrc) return;
-      
-      // Handle mobile vs desktop differently
-      if (this.isMobile) {
-        // For mobile: use poster image, add controls, don't autoplay
-        videoElement.poster = this.getVideoPoster(videoSrc);
-        videoElement.controls = true;
-        videoElement.autoplay = false;
-        videoElement.loop = false;
-        videoElement.preload = 'metadata';
-        
-        // Set mobile-optimized source
-        const sourcesElements = videoElement.querySelectorAll('source');
-        if (sourcesElements.length > 0) {
-          sourcesElements[0].src = this.getMobileVideoSource(videoSrc);
-        }
-      } else {
-        // For desktop: autoplay on hover, no controls, loop
-        videoElement.autoplay = false;
-        videoElement.muted = true;
-        videoElement.loop = true;
-        videoElement.controls = false;
-        
-        // Add hover behavior
-        videoElement.addEventListener('mouseenter', () => {
-          videoElement.play().catch(() => {});
-        });
-        
-        videoElement.addEventListener('mouseleave', () => {
-          videoElement.pause();
-        });
-        
-        // Set original high-quality source
-        const sourcesElements = videoElement.querySelectorAll('source');
-        if (sourcesElements.length > 0) {
-          sourcesElements[0].src = videoSrc;
-        }
-      }
-      
-      // Force reload of video after source change
-      videoElement.load();
-    },
-    
     openLightbox(index, source = 'main') {
       this.currentLightboxIndex = index;
       this.currentGallerySource = source;
@@ -224,122 +114,43 @@ export default {
       // Add a global click handler to ensure event capture works properly
       this.$nextTick(() => {
         document.addEventListener('keydown', this.handleKeyDown);
-        
-        // Setup lightbox video if current item is a video
-        const lightboxVideo = document.querySelector('.lightbox-video');
-        if (lightboxVideo && this.isVideo(this.currentLightboxItem)) {
-          this.setupLightboxVideo(lightboxVideo);
-        }
       });
     },
-    
-    setupLightboxVideo(videoElement) {
-      if (!videoElement) return;
-      
-      // Always use controls in lightbox
-      videoElement.controls = true;
-      
-      // Handle mobile differently
-      if (this.isMobile) {
-        videoElement.autoplay = false;
-        videoElement.loop = false;
-        videoElement.preload = 'metadata';
-        videoElement.poster = this.getVideoPoster(this.currentLightboxItem);
-        
-        // Set mobile source as primary, with original as fallback
-        const sourcesElements = videoElement.querySelectorAll('source');
-        if (sourcesElements.length >= 2) {
-          sourcesElements[0].src = this.getMobileVideoSource(this.currentLightboxItem);
-          sourcesElements[1].src = this.currentLightboxItem;
-        }
-      } else {
-        videoElement.autoplay = true;
-        videoElement.loop = true;
-        
-        // Set original high-quality source
-        const sourcesElements = videoElement.querySelectorAll('source');
-        if (sourcesElements.length > 0) {
-          sourcesElements[0].src = this.currentLightboxItem;
-        }
-      }
-      
-      // Force reload of video after source change
-      videoElement.load();
-    },
-    
     closeLightbox() {
-      // Pause any playing videos
-      const lightboxVideo = document.querySelector('.lightbox-video');
-      if (lightboxVideo && !lightboxVideo.paused) {
-        lightboxVideo.pause();
-      }
-      
       this.lightboxOpen = false;
       document.body.style.overflow = ''; // Restore scrolling
       
       // Remove the global handlers when closing
       document.removeEventListener('keydown', this.handleKeyDown);
     },
-    
     nextItem(e) {
       if (e) {
         e.stopPropagation();
         e.preventDefault();
       }
       
-      // Pause any current video
-      this.pauseLightboxVideo();
-      
       // Get the current gallery items based on source
       const currentGallery = this.getCurrentGalleryItems();
       
-      // Move to next item
+      // Ensure we're calculating based on array length
       if (currentGallery.length > 1) {
         this.currentLightboxIndex = (this.currentLightboxIndex + 1) % currentGallery.length;
       }
-      
-      // Update video if needed
-      this.$nextTick(() => {
-        const lightboxVideo = document.querySelector('.lightbox-video');
-        if (lightboxVideo && this.isVideo(this.currentLightboxItem)) {
-          this.setupLightboxVideo(lightboxVideo);
-        }
-      });
     },
-    
     prevItem(e) {
       if (e) {
         e.stopPropagation();
         e.preventDefault();
       }
       
-      // Pause any current video
-      this.pauseLightboxVideo();
-      
       // Get the current gallery items based on source
       const currentGallery = this.getCurrentGalleryItems();
       
-      // Move to previous item
+      // Ensure we're calculating based on array length
       if (currentGallery.length > 1) {
         this.currentLightboxIndex = (this.currentLightboxIndex - 1 + currentGallery.length) % currentGallery.length;
       }
-      
-      // Update video if needed
-      this.$nextTick(() => {
-        const lightboxVideo = document.querySelector('.lightbox-video');
-        if (lightboxVideo && this.isVideo(this.currentLightboxItem)) {
-          this.setupLightboxVideo(lightboxVideo);
-        }
-      });
     },
-    
-    pauseLightboxVideo() {
-      const video = document.querySelector('.lightbox-video');
-      if (video && !video.paused) {
-        video.pause();
-      }
-    },
-    
     handleKeyDown(e) {
       if (!this.lightboxOpen) return;
       
@@ -356,7 +167,6 @@ export default {
         e.preventDefault();
       }
     },
-    
     getCurrentGalleryItems() {
       if (this.currentGallerySource === 'main') {
         return this.galleryItems;
@@ -364,24 +174,13 @@ export default {
         return this.subProjects[this.currentGallerySource].galleryItems;
       }
       return [];
-    },
-    
-    // Check if we're on a mobile device
-    checkMobile() {
-      this.isMobile = window.innerWidth < 768;
     }
   },
   mounted() {
-    // Check if we're on a mobile device
-    this.checkMobile();
-    
-    // Add resize listener to update device type on orientation change
-    window.addEventListener('resize', this.checkMobile);
+    // We'll add keyboard navigation in the openLightbox method
+    // This ensures unique handling per component instance
   },
   beforeUnmount() {
-    // Clean up event listeners
-    window.removeEventListener('resize', this.checkMobile);
-    
     // Make sure to clean up listeners if the component is destroyed while lightbox is open
     if (this.lightboxOpen) {
       document.removeEventListener('keydown', this.handleKeyDown);
@@ -435,13 +234,12 @@ export default {
               <div class="justify-self-start md:justify-self-end mt-6 md:mt-0">
                 <video 
                   v-if="video" 
-                  class="lazy-video object-cover h-32 w-full md:h-40 md:w-60" 
-                  :data-src="video"
-                  :data-video-id="'header-' + title"
+                  class="object-cover h-32 w-full md:h-40 md:w-60" 
+                  autoplay 
+                  loop 
                   muted
-                  playsinline
                 >
-                  <source type="video/mp4">
+                  <source :src="video" type="video/mp4">
                 </video>
                 <img 
                   v-else-if="image" 
@@ -487,12 +285,10 @@ export default {
               <div class="mt-6 md:mt-0">
                 <video 
                   v-if="video" 
-                  class="lazy-video w-full object-cover border border-gray-200" 
-                  :data-src="video"
-                  :data-video-id="'main-' + title"
-                  playsinline
+                  class="w-full object-cover border border-gray-200" 
+                  controls
                 >
-                  <source type="video/mp4">
+                  <source :src="video" type="video/mp4">
                 </video>
                 <img 
                   v-else-if="image" 
@@ -506,7 +302,7 @@ export default {
             <!-- Main Gallery Section (if not using sub-projects) -->
             <div v-if="!hasSubProjects && galleryItems && galleryItems.length > 0" class="col-span-1 md:col-span-2 mt-6">
               <div class="flex flex-row flex-wrap gap-4">
-                <!-- Videos -->
+                <!-- Videos and images mixed together -->
                 <div 
                   v-for="(item, index) in galleryItems" 
                   :key="`item-${index}`"
@@ -516,13 +312,13 @@ export default {
                   <!-- Video item -->
                   <video 
                     v-if="isVideo(item)"
-                    class="lazy-video object-contain w-auto h-auto max-h-64" 
-                    :data-src="item"
-                    :data-video-id="title + '-gallery-' + index"
-                    playsinline
+                    class="object-contain w-auto h-auto max-h-64" 
+                    autoplay
+                    loop
                     muted
+                    playsinline
                   >
-                    <source type="video/mp4">
+                    <source :src="item" type="video/mp4">
                   </video>
                   
                   <!-- Image item -->
@@ -558,13 +354,13 @@ export default {
                       <!-- Video item -->
                       <video 
                         v-if="isVideo(item)"
-                        class="lazy-video object-contain w-auto h-auto max-h-64" 
-                        :data-src="item"
-                        :data-video-id="subProject.title + '-gallery-' + itemIndex"
-                        playsinline
+                        class="object-contain w-auto h-auto max-h-64" 
+                        autoplay
+                        loop
                         muted
+                        playsinline
                       >
-                        <source type="video/mp4">
+                        <source :src="item" type="video/mp4">
                       </video>
                       
                       <!-- Image item -->
@@ -587,12 +383,12 @@ export default {
       </div>
     </transition>
     
-    <!-- Lightbox overlay -->
+    <!-- Lightbox overlay - FIXED VERSION -->
     <teleport to="body">
       <div v-if="lightboxOpen" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
         <!-- Lightbox content container -->
-        <div class="relative max-w-4xl w-full h-full flex items-center justify-center p-4 md:p-8">
-          <!-- Close button -->
+        <div class="relative max-w-4xl w-full h-full flex items-center justify-center p-8">
+          <!-- Close button - moved outside content area -->
           <button 
             @click.stop="closeLightbox" 
             class="absolute top-4 right-4 bg-white bg-opacity-50 hover:bg-opacity-70 rounded-full p-2 transition z-20"
@@ -603,17 +399,17 @@ export default {
             </svg>
           </button>
 
-          <!-- Content area -->
+          <!-- Content area - doesn't stop event propagation -->
           <div class="max-h-full max-w-full overflow-auto">
             <!-- Video -->
             <video 
               v-if="currentLightboxItem && isVideo(currentLightboxItem)" 
-              class="lightbox-video max-h-screen max-w-full mx-auto"
-              playsinline
+              controls 
+              autoplay
+              class="max-h-screen max-w-full mx-auto"
               @click.stop
             >
-              <source type="video/mp4">
-              <source type="video/mp4">
+              <source :src="currentLightboxItem" type="video/mp4">
             </video>
             
             <!-- Image -->
@@ -626,7 +422,7 @@ export default {
             >
           </div>
           
-          <!-- Navigation controls -->
+          <!-- Navigation controls - fixed positioning and separate from content -->
           <button 
             v-if="getCurrentGalleryItems().length > 1" 
             @click.stop="prevItem" 
@@ -651,26 +447,6 @@ export default {
           
           <!-- Background overlay that closes the lightbox when clicked -->
           <div class="absolute inset-0 z-10" @click="closeLightbox"></div>
-          
-          <!-- Mobile video controls (better touch targets) -->
-          <div v-if="isMobile && currentLightboxItem && isVideo(currentLightboxItem)" class="absolute bottom-4 left-0 right-0 z-20 flex justify-center space-x-4">
-            <button 
-              class="bg-white bg-opacity-70 rounded-full w-12 h-12 flex items-center justify-center"
-              @click.stop="document.querySelector('.lightbox-video').play()"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              </svg>
-            </button>
-            <button
-              class="bg-white bg-opacity-70 rounded-full w-12 h-12 flex items-center justify-center"
-              @click.stop="document.querySelector('.lightbox-video').pause()"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </teleport>
@@ -693,7 +469,7 @@ export default {
 
 .gallery-item {
   flex: 0 0 auto;
-  width: calc(33.33% - 1rem);
+  width: calc(14% - 1.125rem);  /* Smaller items per row with reduced padding */
   padding: 2px;
   border-radius: 4px;
   transition: transform 0.2s ease, border 0.2s ease;
@@ -726,51 +502,34 @@ export default {
   opacity: 1;
 }
 
-/* Mobile video optimizations */
-@media (max-width: 768px) {
-  .lazy-video {
-    aspect-ratio: 16/9;
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-  
+/* Lightbox animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
   .gallery-item {
-    width: calc(50% - 0.5rem);
+    width: calc(33.333% - 1rem);  /* 3 items per row on medium screens */
   }
-  
-  .gallery-item video {
-    max-height: none;
-    width: 100%;
-  }
-  
-  /* Show play button on videos that aren't autoplaying */
-  .lazy-video:not([autoplay])::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    pointer-events: none;
-    z-index: 2;
-    opacity: 0.8;
-  }
-  
-  /* Larger touch targets for video controls */
-  .lazy-video::-webkit-media-controls-play-button,
-  .lazy-video::-webkit-media-controls-pause-button {
-    width: 44px;
-    height: 44px;
+}
+
+@media (max-width: 768px) {
+  .gallery-item {
+    width: calc(50% - 0.75rem);  /* 2 items per row on small screens */
   }
 }
 
 @media (max-width: 480px) {
   .gallery-item {
-    width: 100%;
+    width: 100%;  /* 1 item per row on very small screens */
+    margin-bottom: 1rem;
   }
 }
 </style>
