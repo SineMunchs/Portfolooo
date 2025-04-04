@@ -32,7 +32,7 @@ export default {
           "/images/neoImplementering.png",
           "/images/neoCardcomp.png",
           "/images/neofigma.png",
-          "/video/Interactive.webm",
+          "/video/interactive1.webm",
         ],
         Webshop: [
           "/images/webshop.png",
@@ -61,7 +61,8 @@ export default {
           "/video/ccHello.webm",  
         ],
         projectionMapping: [
-        "/video/KusamaYayoi_Processing.webm",      
+        "/video/projectionMapping.webm",    
+        "/images/Projection1.png",  
         ],
         visualLanguage: [
           "/images/face.svg",
@@ -134,7 +135,7 @@ export default {
   <ProjectDropdown
     title="Interactive Design" 
     date="24/01/2025"
-    tags="UI design, UX, visual identity, prototyping, research, figma, Adobe, interactive design"
+    tags="UI design, UX, visual identity, prototyping, research, figma, adobe, interactive design"
     :description="projectDetails.interactiveDesign"
     :galleryItems="projectGalleries.interactiveDesign"
     projectLink="https://neodfys.netlify.app/"
@@ -143,7 +144,7 @@ export default {
   <ProjectDropdown
     title="Webshop" 
     date="21/01/2025"
-    tags="UX/UI design, interactive storytelling, historical narrative, user research, HTML/CSS, JavaScript, content strategy, information architecture, visual design, Figma"
+    tags="UX/UI design, interactive storytelling, historical narrative, user research, HTML/CSS, javaScript, content strategy, information architecture, visual design, figma"
     :description="projectDetails.Webshop"
     :galleryItems="projectGalleries.Webshop"
     projectLink="https://welfareorgreenland.netlify.app/"
@@ -180,7 +181,7 @@ export default {
 <ProjectDropdown
     title="Projection Mapping"
     date="22/03/2025"
-    tags="AI, projection mapping, after effect, generative Art"
+    tags="AI, runway, projection mapping, after effect, generative art"
     :description="projectDetails.projectionMapping"
     :galleryItems="projectGalleries.projectionMapping"
   />
