@@ -55,7 +55,7 @@
 
       <div class="mt-6 p-2 max-w-4xl">
         <div class="mb-8">
-          <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">Jan 2023 - Present</h2>
+          <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">Jan 2023 - </h2>
           <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal">E-commerce & SoMe Specialist - Architectmade</h3>
           <p class="text-base md:text-lg tracking-wide text-blå mt-2">
             At Architectmade, I manage their Shopify e-commerce platform and social media presence. My responsibilities include optimizing the online shopping experience, implementing digital marketing strategies, creating engaging content that showcases their products, and analyzing performance metrics to drive growth in their digital channels.
@@ -63,7 +63,7 @@
         </div>
         
         <div class="mb-8">
-          <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">Jul 2022 - Dec 2022</h2>
+          <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">Jul 2022 - </h2>
           <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal">Social Media & Content Creator - Picnic Glyptoteket</h3>
           <p class="text-base md:text-lg tracking-wide text-blå mt-2">
             While working with Picnic at Glyptoteket, I crafted compelling visual narratives and social media content that bridged the gap between classical art and contemporary audiences. My role involved developing creative concepts, producing photography and video content, managing social media campaigns, and helping to elevate the unique cultural experience of picnicking among ancient sculptures.
@@ -71,7 +71,7 @@
         </div>
         
         <div class="mb-8">
-          <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">Apr 2022 - Jun 2022</h2>
+          <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">Apr 2022 -</h2>
           <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal">SoMe Assistant & Graphic Designer - Bertung PR</h3>
           <p class="text-base md:text-lg tracking-wide text-blå mt-2">
             At Bertung PR, I provided direct social media support to the CEO while handling various graphic design projects. My responsibilities included creating visual assets for client campaigns, designing marketing materials, managing social media content calendars, and ensuring consistent brand representation across different platforms and media.
