@@ -18,9 +18,10 @@ export default {
       type: String,
       default: null
     },
+    // Thumbnail prop can be kept but we won't display it
     thumbnail: {
       type: String,
-      default: "/images/face.svg"
+      default: ""
     },
     description: {
       type: String,
@@ -77,7 +78,7 @@ export default {
     hasSubProjects() {
       return this.subProjects && this.subProjects.length > 0;
     },
-    // Add a computed property for dropdown header styling
+    // Update grid columns since we're removing the thumbnail column
     dropdownHeaderClass() {
       return {
         'border-b': true,
@@ -85,8 +86,8 @@ export default {
         'bg-blå': this.isOpen,
         'py-2': true,
         'grid': true,
-        'grid-cols-2': true,
-        'md:grid-cols-4': true,
+        'grid-cols-1': true,
+        'md:grid-cols-3': true,
         'cursor-pointer': true,
         'items-center': true,
         'transition-colors': true,
@@ -203,14 +204,7 @@ export default {
       <!-- Title Column - Takes full width on mobile -->
       <div class="flex items-center elite col-span-1 md:col-span-1" :class="textColorClass">{{ title }}</div>
       
-      <!-- Thumbnail Column (right) -->
-      <div class="flex items-center justify-end">
-        <img 
-          :src="thumbnail" 
-          :alt="title" 
-          class="h-14 w-14 object-contain"
-        >
-      </div>
+      <!-- Thumbnail Column removed -->
     </div>
 
     <!-- Dropdown Content - Only visible when expanded -->

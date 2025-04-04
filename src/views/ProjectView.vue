@@ -136,7 +136,6 @@ export default {
     date="24/01/2025"
     category="Identity and visualization"
     tags="UI design, UX, visual identity, prototyping, research, figma, Adobe, interactive design"
-    thumbnail="/images/neoThumbnail.png"
     :description="projectDetails.interactiveDesign"
     :galleryItems="projectGalleries.interactiveDesign"
     projectLink="https://neodfys.netlify.app/"
@@ -147,7 +146,6 @@ export default {
     date="21/01/2025"
     category="Experience Design"
     tags="UX/UI design, interactive storytelling, historical narrative, user research, HTML/CSS, JavaScript, content strategy, information architecture, visual design, Figma"
-    thumbnail="/images/thumbnailreview.png"
     :description="projectDetails.Webshop"
     :galleryItems="projectGalleries.Webshop"
     projectLink="https://welfareorgreenland.netlify.app/"
@@ -159,7 +157,6 @@ export default {
     date="21/11/2024"
     category="Pose Classification"
     tags="P5.js, interactive design, creative coding, AI, machine learning, generative art"
-    thumbnail="/images/IDthumbnail.png"
     :description="projectDetails.PoseClassification"
     :galleryItems="projectGalleries.PoseClassification"
     projectLink="https://www.superultra.dk/posts/2024/12/05/teaching-genai"
@@ -171,7 +168,6 @@ export default {
     date="03/01/2024"
     category="Branding"
     tags="Form, Color Theory Typography, Drawing, Creativity, 3D Modelling, Programming, Processing, Blender, JavaScript, CSS"
-    thumbnail="/images/logo.png"
     :description="projectDetails.jewellery"
     :galleryItems="projectGalleries.jewellery"
   />
@@ -182,7 +178,6 @@ export default {
     date="17/11/2023"
     category="Generative Art"
     tags="Drawing with Processing, p5.js"
-    thumbnail="/images/creativeThumbnail.png"
     :description="projectDetails.creativeCoding"
     :galleryItems="projectGalleries.creativeCoding"
   />
@@ -192,7 +187,6 @@ export default {
     date="22/03/2025"
     category="AI, video Runway"
     tags="AI, Projection Mapping, After Effect, Generative Art"
-    thumbnail="/images/creativeThumbnail.png"
     :description="projectDetails.projectionMapping"
     :galleryItems="projectGalleries.projectionMapping"
   />
@@ -203,8 +197,7 @@ export default {
     date="10/09/2023"
     category="Things I observe"
     tags="Form, color theory, typography, drawing, creativity, observation, Photo, Processing, Projection mapping, Blender"
-    thumbnail="/images/Makrel1.jpg"
     :description="projectDetails.colorObservation"
-    :subProjects="colorObservationSubProjects"
-  />
-</template>
+    :sub --></ProjectDropdown>
+
+    </template>
