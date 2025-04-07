@@ -82,7 +82,7 @@
           <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">2014-2021</h2>
           <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal"> All arounder, Waitress, SoMe, & Events - Kadeau </h3>
           <p class="text-base md:text-lg tracking-wide text-blå mt-2">
-            During my long-term position at Kadeau restaurants in both Copenhagen and Bornholm, I wore multiple hats as a server, social media coordinator, and event planner. This role allowed me to develop strong hospitality skills while helping to build the digital presence of these acclaimed restaurants. I managed bookings, coordinated special events, created compelling content for their social channels, and ensured exceptional guest experiences that aligned with their Nordic culinary philosophy.
+            As a versatile team member at Kadeau restaurants across both Copenhagen and Bornholm locations, I served as an all-arounder handling waitressing duties, social media management, and event coordination. I delivered exceptional dining experiences while capturing and sharing Kadeau's Nordic culinary vision through compelling digital content. My responsibilities included managing reservations, orchestrating special events, creating engaging social media posts, and ensuring every guest interaction reflected the restaurant's distinctive philosophy and acclaimed standards.
           </p>
         </div>
       </div>
