@@ -9,12 +9,19 @@
         <h1 class="text-blå text-6xl md:text-7xl lg:text-8xl tracking-widest font-normal">
           About - Contact
         </h1>
+        
         <img
           src="/images/Smil1.svg"
           alt="Smiley"
           class="h-8 w-8 ml-2 mb-14 hover:animate-spin"
         />
       </div>
+<div>
+      <h2 class="mt-10 text-blå text-5xl md:text-6xl lg:text-7xl tracking-widest font-normal">
+        Hello, I'm Sine Munch, a Coded Design student at DMJX. I am passionate about creating innovative digital experiences that blend design and technology. My journey has taken me through various roles in e-commerce, social media, and content creation, where I've honed my skills in visual communication and digital strategy. I thrive on pushing creative boundaries and exploring new ways to connect with audiences through design.
+      </h2>
+    </div>
+
 
       <!-- Education Section -->
       <div class="mt-16 ml-1">
