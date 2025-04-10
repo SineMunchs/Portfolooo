@@ -4,7 +4,7 @@
     <div class="content-container">
       <!-- About Section -->
       <div class="mt-20 ml-1 flex items-center">
-        <h1 class="text-blå text-6xl md:text-7xl lg:text-8xl tracking-widest font-normal">
+        <h1 class="text-blå text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-widest font-normal">
           About - Contact
         </h1>
         
@@ -18,13 +18,13 @@
         <!-- Modified h2 to be in a container with hover effect -->
         <div class="relative group mouse-track-container">
           <div class="h2-content">
-            <h2 class="mt-10 text-blå text-5xl md:text-6xl lg:text-7xl ml-2 tracking-widest font-normal">
+            <h2 class="mt-10 text-blå text-3xl sm:text-4xl md:text-6xl lg:text-7xl ml-2 tracking-widest font-normal">
               Hello, I'm Sine Munch, a Coded Design student at DMJX. I am passionate about creating innovative digital experiences that blend design and technology. My journey has taken me through various roles in e-commerce, social media, and content creation, where I've honed my skills in visual communication and digital strategy. I thrive on pushing creative boundaries and exploring new ways to connect with audiences through design.
             </h2>
           </div>
           <div class="mouse-follow-image opacity-0 group-hover:opacity-100">
             <img
-              src="/images/about.png"
+              src="/images/about1.png"
               alt="About Hover"
               class="h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 object-contain"
             />
@@ -35,7 +35,7 @@
 
       <!-- Education Section -->
       <div class="mt-16 ml-1">
-        <h1 class="text-blå text-5xl md:text-6xl lg:text-7xl tracking-widest font-normal">
+        <h1 class="text-blå text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-widest font-normal">
           Education
         </h1>
       </div>
@@ -62,33 +62,81 @@
 
       <!-- Work Section -->
       <div class="mt-16 ml-1">
-        <h1 class="text-blå text-5xl md:text-6xl lg:text-7xl tracking-widest">
+        <h1 class="text-blå text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-widest">
           Work
         </h1>
       </div>
 
-      <div class="mt-6 p-2 max-w-4xl">
+      <!-- Work content and links as columns -->
+      <div class="md:flex md:flex-row md:justify-between mt-6">
         <!-- Work Entries -->
-        <div
-          v-for="(work, index) in workExperience"
-          :key="index"
-          class="mb-8 relative"
-        >
-          <div class="work-section-content">
-            <div class="relative group mouse-track-container">
-              <div class="h2-content">
-                <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">{{ work.years }}</h2>
+        <div class="p-2 max-w-4xl md:w-2/3">
+          <div
+            v-for="(work, index) in workExperience"
+            :key="index"
+            class="mb-8 relative"
+          >
+            <div class="work-section-content">
+              <div class="relative group mouse-track-container">
+                <div class="h2-content">
+                  <h2 class="text-blå text-3xl md:text-4xl tracking-wide font-normal">{{ work.years }}</h2>
+                </div>
+                <div class="mouse-follow-image opacity-0 group-hover:opacity-100">
+                  <img
+                    :src="work.image"
+                    :alt="work.alt"
+                    class="h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 object-contain"
+                  />
+                </div>
               </div>
-              <div class="mouse-follow-image opacity-0 group-hover:opacity-100">
-                <img
-                  :src="work.image"
-                  :alt="work.alt"
-                  class="h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48 object-contain"
-                />
-              </div>
+              <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal">{{ work.title }}</h3>
+              <p class="text-base md:text-lg tracking-wide text-blå mt-2">{{ work.description }}</p>
             </div>
-            <h3 class="text-blå text-2xl md:text-3xl tracking-wide font-normal">{{ work.title }}</h3>
-            <p class="text-base md:text-lg tracking-wide text-blå mt-2">{{ work.description }}</p>
+          </div>
+        </div>
+
+        <!-- Desktop Links Column (next to work) -->
+        <div class="hidden md:block md:w-1/3 p-8 self-end">
+          <div class="flex flex-col items-end">
+            <!-- Links from data array -->
+            <a 
+              v-for="link in links" 
+              :key="link.name"
+              :href="link.url"
+              target="_blank"
+              class="mb-8 group transition-opacity duration-300 opacity-30 hover:opacity-100"
+            >
+              <div class="flex items-center">
+                <img 
+                  src="/images/arrow.svg"
+                  :alt="`${link.name} Arrow`"
+                  class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" 
+                />
+                <span class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline font-normal">
+                  {{ link.name }}
+                </span>
+              </div>
+            </a>
+
+            <!-- Email (special case for copy functionality) -->
+            <div 
+              @click="copyEmailToClipboard" 
+              class="mb-12 group transition-opacity duration-300 opacity-30 hover:opacity-100 cursor-pointer relative"
+            >
+              <div class="flex items-center">
+                <img 
+                  src="/images/arrow.svg"
+                  alt="Email Arrow"
+                  class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" 
+                />
+                <span class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">
+                  Email
+                </span>
+              </div>
+              <span v-if="copySuccess" class="absolute top-full left-0 text-lg text-blå mt-1">
+                Email copied!
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -114,51 +162,6 @@
               <span class="text-3xl text-blå">Email</span>
             </div>
             <div v-if="copySuccess" class="mt-1 ml-11 text-sm text-blå">Email copied!</div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Desktop Links Section (non-fixed) -->
-      <div class="hidden md:block mt-10 mb-30">
-        <div class="flex flex-col items-end p-8">
-          <!-- Links from data array -->
-          <a 
-            v-for="link in links" 
-            :key="link.name"
-            :href="link.url"
-            target="_blank"
-            class="mb-8 group transition-opacity duration-300 opacity-30 hover:opacity-100"
-          >
-            <div class="flex items-center">
-              <img 
-                src="/images/arrow.svg"
-                :alt="`${link.name} Arrow`"
-                class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" 
-              />
-              <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline font-normal">
-                {{ link.name }}
-              </span>
-            </div>
-          </a>
-
-          <!-- Email (special case for copy functionality) -->
-          <div 
-            @click="copyEmailToClipboard" 
-            class="mb-12 group transition-opacity duration-300 opacity-30 hover:opacity-100 cursor-pointer relative"
-          >
-            <div class="flex items-center">
-              <img 
-                src="/images/arrow.svg"
-                alt="Email Arrow"
-                class="h-8 w-10 md:h-10 md:w-12 lg:h-12 lg:w-16" 
-              />
-              <span class="text-7xl md:text-8xl lg:text-9xl tracking-widest text-blå group-hover:underline">
-                Email
-              </span>
-            </div>
-            <span v-if="copySuccess" class="absolute top-full right-0 text-lg md:text-xl text-blå mt-1">
-              Email copied!
-            </span>
           </div>
         </div>
       </div>
