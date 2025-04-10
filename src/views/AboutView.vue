@@ -19,7 +19,8 @@
         <div class="relative group mouse-track-container">
           <div class="h2-content">
             <h2 class="mt-10 text-blå text-3xl sm:text-4xl md:text-6xl lg:text-7xl ml-2 tracking-widest font-normal">
-              Hello, I'm Sine Munch, a Coded Design student at DMJX. I am passionate about creating innovative digital experiences that blend design and technology. My journey has taken me through various roles in e-commerce, social media, and content creation, where I've honed my skills in visual communication and digital strategy. I thrive on pushing creative boundaries and exploring new ways to connect with audiences through design.
+              Hello, I'm Sine Munch, a Coded Design student at DMJX with a passion for creating immersive digital experiences. I've dabbled in everything from e-commerce and Shopify to content creation and project management, picking up visual communication and digital strategy skills along the way.
+              I love pushing creative boundaries and finding fresh connections between technology and design.
             </h2>
           </div>
           <div class="mouse-follow-image opacity-0 group-hover:opacity-100">
