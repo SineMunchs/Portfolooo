@@ -17,9 +17,7 @@ export default {
        Webshop: "For this project, I created an experience site that conveys complex historical narratives through interactive storytelling. I added a humorous twist to the absurd concept of buying Greenland by flipping the narrative—what if Denmark sold Greenland instead? The satirical webshop explores what the country could purchase with the proceeds to improve Danish welfare. The design balances historical commentary with engaging user experience, using primary sources and fictional product listings to create both entertainment and reflection. This project demonstrates my ability to transform serious geopolitical concepts into accessible digital experiences that engage visitors through humor while prompting deeper consideration of national priorities.",
         PoseClassification: "Artificial Intelligence and How You Can Use It to Expand Your Creative Use of Code. A three-module course exploring AI for creative coding. Module 1 introduces machine learning with Teachable Machine for classifying images, sounds, and poses. Module 2 covers generative AI technologies for creating text, images, and sounds. Module 3 allows students to develop self-directed projects applying these tools to extend creative capabilities. Read more about the course through the link underneath.",
         jewellery: "I created a project integrating various disciplines from my studies. I applied form principles for balanced compositions and color theory for a harmonious, emotionally responsive palette. Typography selection balanced readability and personality through testing multiple font families.My drawing combined digital and traditional techniques in Procreate and Illustrator, supported by brainstorming and mood boards. For 3D elements, I used Blender to model and texture objects with attention to lighting. Programming with JavaScript and CSS brought interactive elements to life while maintaining visual integrity.",
-        creativeCoding: "Experiments with Processing & P5.js to create generative art and interactive visualizations.",
-        ProjectionMapping: "Projection Mapping installation for Thoravej 29 and Generation Hope's Snart lab. The project transformed over 3,000 letters from young people into visual art. Working with Freja, we focused on animating the doodles from these letters using AI, bringing their hopes and dreams to life. The installation remains on display at Thoravej 29.",
-        
+        creativeCoding: "Experiments with Processing & P5.js to create generative art and interactive visualizations.", 
         visualLanguage: "An exploration of form, color theory, typography and drawing techniques.",
         colorObservation: ""
       },
@@ -60,10 +58,6 @@ export default {
           "/video/Molnar.webm",
           "/video/ccHello.webm",  
         ],
-        projectionMapping: [
-        "/video/projectionMapping.webm",    
-        "/images/Projection1.png",  
-        ],
         visualLanguage: [
           "/images/face.svg",
           "/images/vin.jpg",
@@ -71,6 +65,28 @@ export default {
           "/images/blue-space.png"
         ]
       },
+      // Projection Mapping sub-projects
+      projectionSubProjects: [
+        
+        {
+          title: "Projection Mapping",
+          description: "Projection Mapping installation for Thoravej 29 and Generation Hope's Snart lab. The project transformed over 3,000 letters from young people into visual art. Working with Freja, we focused on animating the doodles from these letters using AI, bringing their hopes and dreams to life. The installation remains on display at Thoravej 29.",
+          galleryItems: [
+            "/video/projectionMapping.webm",    
+            "/images/Projection1.png", 
+            "/video/Projection2.webm", 
+          ]
+        },
+        {
+          title: "Accountant Camu",
+          description: "I created Accountant Camouflage using p5.js, projecting onto mannequin Lola. The design uses ASCII characters—simple text numbers (3s, 4s, 5s) arranged in patterns—to create a corporate disguise in shades of blue. ASCII art uses standard keyboard characters to form images, perfect for my financial-themed camouflage. My interactive algorithm generates ever-changing numerical patterns that conceal identity through bureaucratic visual noise, transforming accounting aesthetics into digital protection.",
+          galleryItems: [
+            "/video/revisorcamu.webm",
+            "/video/revisorcamuProces.webm",
+            "/images/ProctionMapping.png",
+          ]
+        }
+      ],
       // Color Observation sub-projects
       colorObservationSubProjects: [
         {
@@ -178,14 +194,14 @@ export default {
     :galleryItems="projectGalleries.creativeCoding"
   />
 
-<ProjectDropdown
-    title="Projection Mapping"
-    date="22/03/2025"
-    tags="AI, runway, projection mapping, after effect, generative art"
-    :description="projectDetails.projectionMapping"
-    :galleryItems="projectGalleries.projectionMapping"
+  <ProjectDropdown
+  title="Projection Mapping" 
+  date="10/04/2025"
+  tags="AI, runway, projection mapping, after effect, generative art"
+  description=""
+  :subProjects="projectionSubProjects"
   />
-  
+
    <!-- Multi-project Dropdown for Color Observation -->
    <ProjectDropdown
     title="Observation" 
